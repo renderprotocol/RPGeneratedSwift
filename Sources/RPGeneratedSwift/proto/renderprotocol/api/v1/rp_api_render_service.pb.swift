@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct RPFetchViewRequest: Sendable {
+public struct RPFetchRenderTreeRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -34,7 +34,7 @@ public struct RPFetchViewRequest: Sendable {
   public init() {}
 }
 
-public struct RPFetchViewResponse: Sendable {
+public struct RPFetchRenderTreeResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -61,8 +61,8 @@ public struct RPFetchViewResponse: Sendable {
 
 fileprivate let _protobuf_package = "proto.renderprotocol.api.v1"
 
-extension RPFetchViewRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPFetchViewRequest"
+extension RPFetchRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPFetchRenderTreeRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}session_token\0\u{3}view_id\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -88,7 +88,7 @@ extension RPFetchViewRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: RPFetchViewRequest, rhs: RPFetchViewRequest) -> Bool {
+  public static func ==(lhs: RPFetchRenderTreeRequest, rhs: RPFetchRenderTreeRequest) -> Bool {
     if lhs.sessionToken != rhs.sessionToken {return false}
     if lhs.viewID != rhs.viewID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -96,8 +96,8 @@ extension RPFetchViewRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension RPFetchViewResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPFetchViewResponse"
+extension RPFetchRenderTreeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPFetchRenderTreeResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}view\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -127,7 +127,7 @@ extension RPFetchViewResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: RPFetchViewResponse, rhs: RPFetchViewResponse) -> Bool {
+  public static func ==(lhs: RPFetchRenderTreeResponse, rhs: RPFetchRenderTreeResponse) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs._view != rhs._view {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
