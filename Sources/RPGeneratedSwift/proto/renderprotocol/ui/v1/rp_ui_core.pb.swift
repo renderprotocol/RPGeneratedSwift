@@ -20,55 +20,67 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct RPWidget: Sendable {
+public struct RPWidget: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var id: String = String()
+  public var id: String {
+    get {_storage._id}
+    set {_uniqueStorage()._id = newValue}
+  }
 
-  public var modifiers: [RPModifier] = []
-
-  public var content: RPWidget.OneOf_Content? = nil
+  public var content: OneOf_Content? {
+    get {return _storage._content}
+    set {_uniqueStorage()._content = newValue}
+  }
 
   public var row: RPRow {
     get {
-      if case .row(let v)? = content {return v}
+      if case .row(let v)? = _storage._content {return v}
       return RPRow()
     }
-    set {content = .row(newValue)}
+    set {_uniqueStorage()._content = .row(newValue)}
   }
 
   public var column: RPColumn {
     get {
-      if case .column(let v)? = content {return v}
+      if case .column(let v)? = _storage._content {return v}
       return RPColumn()
     }
-    set {content = .column(newValue)}
+    set {_uniqueStorage()._content = .column(newValue)}
   }
 
   public var stack: RPStack {
     get {
-      if case .stack(let v)? = content {return v}
+      if case .stack(let v)? = _storage._content {return v}
       return RPStack()
     }
-    set {content = .stack(newValue)}
+    set {_uniqueStorage()._content = .stack(newValue)}
+  }
+
+  public var container: RPContainer {
+    get {
+      if case .container(let v)? = _storage._content {return v}
+      return RPContainer()
+    }
+    set {_uniqueStorage()._content = .container(newValue)}
   }
 
   public var text: RPText {
     get {
-      if case .text(let v)? = content {return v}
+      if case .text(let v)? = _storage._content {return v}
       return RPText()
     }
-    set {content = .text(newValue)}
+    set {_uniqueStorage()._content = .text(newValue)}
   }
 
   public var image: RPImage {
     get {
-      if case .image(let v)? = content {return v}
+      if case .image(let v)? = _storage._content {return v}
       return RPImage()
     }
-    set {content = .image(newValue)}
+    set {_uniqueStorage()._content = .image(newValue)}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -77,12 +89,15 @@ public struct RPWidget: Sendable {
     case row(RPRow)
     case column(RPColumn)
     case stack(RPStack)
+    case container(RPContainer)
     case text(RPText)
     case image(RPImage)
 
   }
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct RPRow: Sendable {
@@ -129,133 +144,249 @@ public struct RPStack: Sendable {
   public init() {}
 }
 
+public struct RPContainer: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var value: OneOf_Value? {
+    get {return _storage._value}
+    set {_uniqueStorage()._value = newValue}
+  }
+
+  public var border: RPBorder {
+    get {
+      if case .border(let v)? = _storage._value {return v}
+      return RPBorder()
+    }
+    set {_uniqueStorage()._value = .border(newValue)}
+  }
+
+  public var padding: RPPadding {
+    get {
+      if case .padding(let v)? = _storage._value {return v}
+      return RPPadding()
+    }
+    set {_uniqueStorage()._value = .padding(newValue)}
+  }
+
+  public var backgroundColor: RPColor {
+    get {
+      if case .backgroundColor(let v)? = _storage._value {return v}
+      return RPColor()
+    }
+    set {_uniqueStorage()._value = .backgroundColor(newValue)}
+  }
+
+  public var clip: RPClip {
+    get {
+      if case .clip(let v)? = _storage._value {return v}
+      return RPClip()
+    }
+    set {_uniqueStorage()._value = .clip(newValue)}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum OneOf_Value: Equatable, Sendable {
+    case border(RPBorder)
+    case padding(RPPadding)
+    case backgroundColor(RPColor)
+    case clip(RPClip)
+
+  }
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
 extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPWidget"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{1}modifiers\0\u{2}1row\0\u{1}column\0\u{1}stack\0\u{2}0text\0\u{1}image\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{2}2row\0\u{1}column\0\u{1}stack\0\u{1}container\0\u{2}/text\0\u{1}image\0")
+
+  fileprivate class _StorageClass {
+    var _id: String = String()
+    var _content: RPWidget.OneOf_Content?
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _id = source._id
+      _content = source._content
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.modifiers) }()
-      case 51: try {
-        var v: RPRow?
-        var hadOneofValue = false
-        if let current = self.content {
-          hadOneofValue = true
-          if case .row(let m) = current {v = m}
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._id) }()
+        case 51: try {
+          var v: RPRow?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .row(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .row(v)
+          }
+        }()
+        case 52: try {
+          var v: RPColumn?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .column(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .column(v)
+          }
+        }()
+        case 53: try {
+          var v: RPStack?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .stack(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .stack(v)
+          }
+        }()
+        case 54: try {
+          var v: RPContainer?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .container(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .container(v)
+          }
+        }()
+        case 101: try {
+          var v: RPText?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .text(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .text(v)
+          }
+        }()
+        case 102: try {
+          var v: RPImage?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .image(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .image(v)
+          }
+        }()
+        default: break
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.content = .row(v)
-        }
-      }()
-      case 52: try {
-        var v: RPColumn?
-        var hadOneofValue = false
-        if let current = self.content {
-          hadOneofValue = true
-          if case .column(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.content = .column(v)
-        }
-      }()
-      case 53: try {
-        var v: RPStack?
-        var hadOneofValue = false
-        if let current = self.content {
-          hadOneofValue = true
-          if case .stack(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.content = .stack(v)
-        }
-      }()
-      case 101: try {
-        var v: RPText?
-        var hadOneofValue = false
-        if let current = self.content {
-          hadOneofValue = true
-          if case .text(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.content = .text(v)
-        }
-      }()
-      case 102: try {
-        var v: RPImage?
-        var hadOneofValue = false
-        if let current = self.content {
-          hadOneofValue = true
-          if case .image(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.content = .image(v)
-        }
-      }()
-      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.id.isEmpty {
-      try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
-    }
-    if !self.modifiers.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.modifiers, fieldNumber: 2)
-    }
-    switch self.content {
-    case .row?: try {
-      guard case .row(let v)? = self.content else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 51)
-    }()
-    case .column?: try {
-      guard case .column(let v)? = self.content else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 52)
-    }()
-    case .stack?: try {
-      guard case .stack(let v)? = self.content else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
-    }()
-    case .text?: try {
-      guard case .text(let v)? = self.content else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 101)
-    }()
-    case .image?: try {
-      guard case .image(let v)? = self.content else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 102)
-    }()
-    case nil: break
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._id.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._id, fieldNumber: 1)
+      }
+      switch _storage._content {
+      case .row?: try {
+        guard case .row(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 51)
+      }()
+      case .column?: try {
+        guard case .column(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 52)
+      }()
+      case .stack?: try {
+        guard case .stack(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
+      }()
+      case .container?: try {
+        guard case .container(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 54)
+      }()
+      case .text?: try {
+        guard case .text(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 101)
+      }()
+      case .image?: try {
+        guard case .image(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 102)
+      }()
+      case nil: break
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: RPWidget, rhs: RPWidget) -> Bool {
-    if lhs.id != rhs.id {return false}
-    if lhs.modifiers != rhs.modifiers {return false}
-    if lhs.content != rhs.content {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._id != rhs_storage._id {return false}
+        if _storage._content != rhs_storage._content {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -366,6 +497,150 @@ extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
 
   public static func ==(lhs: RPStack, rhs: RPStack) -> Bool {
     if lhs.children != rhs.children {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPContainer"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{2}\u{a}border\0\u{1}padding\0\u{3}background_color\0\u{1}clip\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _value: RPContainer.OneOf_Value?
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _value = source._value
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 11: try {
+          var v: RPBorder?
+          var hadOneofValue = false
+          if let current = _storage._value {
+            hadOneofValue = true
+            if case .border(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._value = .border(v)
+          }
+        }()
+        case 12: try {
+          var v: RPPadding?
+          var hadOneofValue = false
+          if let current = _storage._value {
+            hadOneofValue = true
+            if case .padding(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._value = .padding(v)
+          }
+        }()
+        case 13: try {
+          var v: RPColor?
+          var hadOneofValue = false
+          if let current = _storage._value {
+            hadOneofValue = true
+            if case .backgroundColor(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._value = .backgroundColor(v)
+          }
+        }()
+        case 14: try {
+          var v: RPClip?
+          var hadOneofValue = false
+          if let current = _storage._value {
+            hadOneofValue = true
+            if case .clip(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._value = .clip(v)
+          }
+        }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      switch _storage._value {
+      case .border?: try {
+        guard case .border(let v)? = _storage._value else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      }()
+      case .padding?: try {
+        guard case .padding(let v)? = _storage._value else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      }()
+      case .backgroundColor?: try {
+        guard case .backgroundColor(let v)? = _storage._value else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+      }()
+      case .clip?: try {
+        guard case .clip(let v)? = _storage._value else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+      }()
+      case nil: break
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPContainer, rhs: RPContainer) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._value != rhs_storage._value {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

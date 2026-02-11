@@ -20,59 +20,64 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct RPModifier: Sendable {
+public struct RPPadding: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var value: RPModifier.OneOf_Value? = nil
+  public var value: RPPadding.OneOf_Value? = nil
 
-  public var border: RPBorder {
+  public var all: Float {
     get {
-      if case .border(let v)? = value {return v}
-      return RPBorder()
+      if case .all(let v)? = value {return v}
+      return 0
     }
-    set {value = .border(newValue)}
+    set {value = .all(newValue)}
   }
 
-  public var padding: RPPadding {
+  public var symmetric: RPSymmetricPadding {
     get {
-      if case .padding(let v)? = value {return v}
-      return RPPadding()
+      if case .symmetric(let v)? = value {return v}
+      return RPSymmetricPadding()
     }
-    set {value = .padding(newValue)}
+    set {value = .symmetric(newValue)}
   }
 
-  public var backgroundColor: RPColor {
+  public var explicit: RPExplicitPadding {
     get {
-      if case .backgroundColor(let v)? = value {return v}
-      return RPColor()
+      if case .explicit(let v)? = value {return v}
+      return RPExplicitPadding()
     }
-    set {value = .backgroundColor(newValue)}
-  }
-
-  public var clip: RPClip {
-    get {
-      if case .clip(let v)? = value {return v}
-      return RPClip()
-    }
-    set {value = .clip(newValue)}
+    set {value = .explicit(newValue)}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Value: Equatable, Sendable {
-    case border(RPBorder)
-    case padding(RPPadding)
-    case backgroundColor(RPColor)
-    case clip(RPClip)
+    case all(Float)
+    case symmetric(RPSymmetricPadding)
+    case explicit(RPExplicitPadding)
 
   }
 
   public init() {}
 }
 
-public struct RPPadding: Sendable {
+public struct RPSymmetricPadding: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var vertical: Float = 0
+
+  public var horizontal: Float = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct RPExplicitPadding: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -119,9 +124,9 @@ public struct RPBorder: Sendable {
 
 fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPModifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPModifier"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}border\0\u{1}padding\0\u{3}background_color\0\u{1}clip\0")
+extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPPadding"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}all\0\u{1}symmetric\0\u{1}explicit\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -130,55 +135,37 @@ extension RPModifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        var v: RPBorder?
-        var hadOneofValue = false
-        if let current = self.value {
-          hadOneofValue = true
-          if case .border(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
+        var v: Float?
+        try decoder.decodeSingularFloatField(value: &v)
         if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.value = .border(v)
+          if self.value != nil {try decoder.handleConflictingOneOf()}
+          self.value = .all(v)
         }
       }()
       case 2: try {
-        var v: RPPadding?
+        var v: RPSymmetricPadding?
         var hadOneofValue = false
         if let current = self.value {
           hadOneofValue = true
-          if case .padding(let m) = current {v = m}
+          if case .symmetric(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.value = .padding(v)
+          self.value = .symmetric(v)
         }
       }()
       case 3: try {
-        var v: RPColor?
+        var v: RPExplicitPadding?
         var hadOneofValue = false
         if let current = self.value {
           hadOneofValue = true
-          if case .backgroundColor(let m) = current {v = m}
+          if case .explicit(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {
           if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.value = .backgroundColor(v)
-        }
-      }()
-      case 4: try {
-        var v: RPClip?
-        var hadOneofValue = false
-        if let current = self.value {
-          hadOneofValue = true
-          if case .clip(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.value = .clip(v)
+          self.value = .explicit(v)
         }
       }()
       default: break
@@ -192,36 +179,67 @@ extension RPModifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
     switch self.value {
-    case .border?: try {
-      guard case .border(let v)? = self.value else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    case .all?: try {
+      guard case .all(let v)? = self.value else { preconditionFailure() }
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 1)
     }()
-    case .padding?: try {
-      guard case .padding(let v)? = self.value else { preconditionFailure() }
+    case .symmetric?: try {
+      guard case .symmetric(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }()
-    case .backgroundColor?: try {
-      guard case .backgroundColor(let v)? = self.value else { preconditionFailure() }
+    case .explicit?: try {
+      guard case .explicit(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case .clip?: try {
-      guard case .clip(let v)? = self.value else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: RPModifier, rhs: RPModifier) -> Bool {
+  public static func ==(lhs: RPPadding, rhs: RPPadding) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPPadding"
+extension RPSymmetricPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPSymmetricPadding"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}vertical\0\u{1}horizontal\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularFloatField(value: &self.vertical) }()
+      case 2: try { try decoder.decodeSingularFloatField(value: &self.horizontal) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.vertical.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.vertical, fieldNumber: 1)
+    }
+    if self.horizontal.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.horizontal, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPSymmetricPadding, rhs: RPSymmetricPadding) -> Bool {
+    if lhs.vertical != rhs.vertical {return false}
+    if lhs.horizontal != rhs.horizontal {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPExplicitPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPExplicitPadding"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}top\0\u{1}bottom\0\u{1}left\0\u{1}right\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -255,7 +273,7 @@ extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: RPPadding, rhs: RPPadding) -> Bool {
+  public static func ==(lhs: RPExplicitPadding, rhs: RPExplicitPadding) -> Bool {
     if lhs.top != rhs.top {return false}
     if lhs.bottom != rhs.bottom {return false}
     if lhs.left != rhs.left {return false}
