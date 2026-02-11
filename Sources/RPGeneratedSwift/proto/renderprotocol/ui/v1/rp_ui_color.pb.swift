@@ -25,11 +25,11 @@ public struct RPColor: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var red: String = String()
+  public var red: Int32 = 0
 
-  public var green: String = String()
+  public var green: Int32 = 0
 
-  public var blue: String = String()
+  public var blue: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -50,23 +50,23 @@ extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.red) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.green) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.blue) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.red) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.green) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.blue) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.red.isEmpty {
-      try visitor.visitSingularStringField(value: self.red, fieldNumber: 1)
+    if self.red != 0 {
+      try visitor.visitSingularInt32Field(value: self.red, fieldNumber: 1)
     }
-    if !self.green.isEmpty {
-      try visitor.visitSingularStringField(value: self.green, fieldNumber: 2)
+    if self.green != 0 {
+      try visitor.visitSingularInt32Field(value: self.green, fieldNumber: 2)
     }
-    if !self.blue.isEmpty {
-      try visitor.visitSingularStringField(value: self.blue, fieldNumber: 3)
+    if self.blue != 0 {
+      try visitor.visitSingularInt32Field(value: self.blue, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
