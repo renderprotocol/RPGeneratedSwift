@@ -51,12 +51,21 @@ public struct RPModifier: Sendable {
     set {value = .backgroundColor(newValue)}
   }
 
+  public var clip: RPClip {
+    get {
+      if case .clip(let v)? = value {return v}
+      return RPClip()
+    }
+    set {value = .clip(newValue)}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Value: Equatable, Sendable {
     case border(RPBorder)
     case padding(RPPadding)
     case backgroundColor(RPColor)
+    case clip(RPClip)
 
   }
 
@@ -64,24 +73,6 @@ public struct RPModifier: Sendable {
 }
 
 public struct RPPadding: Sendable {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  public var top: Float = 0
-
-  public var bottom: Float = 0
-
-  public var left: Float = 0
-
-  public var right: Float = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-}
-
-public struct RPMargin: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -109,11 +100,11 @@ public struct RPBorder: Sendable {
   public var radius: Float = 0
 
   public var color: RPColor {
-    get {return _color ?? RPColor()}
+    get {_color ?? RPColor()}
     set {_color = newValue}
   }
   /// Returns true if `color` has been explicitly set.
-  public var hasColor: Bool {return self._color != nil}
+  public var hasColor: Bool {self._color != nil}
   /// Clears the value of `color`. Subsequent reads from it will return its default value.
   public mutating func clearColor() {self._color = nil}
 
@@ -130,7 +121,7 @@ fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
 extension RPModifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPModifier"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}border\0\u{1}padding\0\u{3}background_color\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}border\0\u{1}padding\0\u{3}background_color\0\u{1}clip\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -177,6 +168,19 @@ extension RPModifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
           self.value = .backgroundColor(v)
         }
       }()
+      case 4: try {
+        var v: RPClip?
+        var hadOneofValue = false
+        if let current = self.value {
+          hadOneofValue = true
+          if case .clip(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.value = .clip(v)
+        }
+      }()
       default: break
       }
     }
@@ -199,6 +203,10 @@ extension RPModifier: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     case .backgroundColor?: try {
       guard case .backgroundColor(let v)? = self.value else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case .clip?: try {
+      guard case .clip(let v)? = self.value else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }()
     case nil: break
     }
@@ -248,51 +256,6 @@ extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   }
 
   public static func ==(lhs: RPPadding, rhs: RPPadding) -> Bool {
-    if lhs.top != rhs.top {return false}
-    if lhs.bottom != rhs.bottom {return false}
-    if lhs.left != rhs.left {return false}
-    if lhs.right != rhs.right {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension RPMargin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPMargin"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}top\0\u{1}bottom\0\u{1}left\0\u{1}right\0")
-
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularFloatField(value: &self.top) }()
-      case 2: try { try decoder.decodeSingularFloatField(value: &self.bottom) }()
-      case 3: try { try decoder.decodeSingularFloatField(value: &self.left) }()
-      case 4: try { try decoder.decodeSingularFloatField(value: &self.right) }()
-      default: break
-      }
-    }
-  }
-
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.top.bitPattern != 0 {
-      try visitor.visitSingularFloatField(value: self.top, fieldNumber: 1)
-    }
-    if self.bottom.bitPattern != 0 {
-      try visitor.visitSingularFloatField(value: self.bottom, fieldNumber: 2)
-    }
-    if self.left.bitPattern != 0 {
-      try visitor.visitSingularFloatField(value: self.left, fieldNumber: 3)
-    }
-    if self.right.bitPattern != 0 {
-      try visitor.visitSingularFloatField(value: self.right, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public static func ==(lhs: RPMargin, rhs: RPMargin) -> Bool {
     if lhs.top != rhs.top {return false}
     if lhs.bottom != rhs.bottom {return false}
     if lhs.left != rhs.left {return false}

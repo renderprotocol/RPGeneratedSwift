@@ -58,20 +58,20 @@ public struct RPApiMetadata: Sendable {
   // methods supported on all messages.
 
   public var appMetadata: RPAppMetadata {
-    get {return _appMetadata ?? RPAppMetadata()}
+    get {_appMetadata ?? RPAppMetadata()}
     set {_appMetadata = newValue}
   }
   /// Returns true if `appMetadata` has been explicitly set.
-  public var hasAppMetadata: Bool {return self._appMetadata != nil}
+  public var hasAppMetadata: Bool {self._appMetadata != nil}
   /// Clears the value of `appMetadata`. Subsequent reads from it will return its default value.
   public mutating func clearAppMetadata() {self._appMetadata = nil}
 
   public var deviceMetadata: RPDeviceMetadata {
-    get {return _deviceMetadata ?? RPDeviceMetadata()}
+    get {_deviceMetadata ?? RPDeviceMetadata()}
     set {_deviceMetadata = newValue}
   }
   /// Returns true if `deviceMetadata` has been explicitly set.
-  public var hasDeviceMetadata: Bool {return self._deviceMetadata != nil}
+  public var hasDeviceMetadata: Bool {self._deviceMetadata != nil}
   /// Clears the value of `deviceMetadata`. Subsequent reads from it will return its default value.
   public mutating func clearDeviceMetadata() {self._deviceMetadata = nil}
 

@@ -26,11 +26,11 @@ public struct RPInitiateRequest: Sendable {
   // methods supported on all messages.
 
   public var appMetadata: RPAppMetadata {
-    get {return _appMetadata ?? RPAppMetadata()}
+    get {_appMetadata ?? RPAppMetadata()}
     set {_appMetadata = newValue}
   }
   /// Returns true if `appMetadata` has been explicitly set.
-  public var hasAppMetadata: Bool {return self._appMetadata != nil}
+  public var hasAppMetadata: Bool {self._appMetadata != nil}
   /// Clears the value of `appMetadata`. Subsequent reads from it will return its default value.
   public mutating func clearAppMetadata() {self._appMetadata = nil}
 

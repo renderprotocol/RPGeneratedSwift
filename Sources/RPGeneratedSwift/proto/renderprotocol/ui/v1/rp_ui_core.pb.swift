@@ -92,6 +92,10 @@ public struct RPRow: Sendable {
 
   public var children: [RPWidget] = []
 
+  public var spacing: Int64 = 0
+
+  public var alignment: RPAxisAlignment = .unspecified
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -103,6 +107,10 @@ public struct RPColumn: Sendable {
   // methods supported on all messages.
 
   public var children: [RPWidget] = []
+
+  public var spacing: Int64 = 0
+
+  public var alignment: RPAxisAlignment = .unspecified
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -255,7 +263,7 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
 
 extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPRow"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}spacing\0\u{1}alignment\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -264,6 +272,8 @@ extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.children) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.spacing) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.alignment) }()
       default: break
       }
     }
@@ -273,11 +283,19 @@ extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
     if !self.children.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.children, fieldNumber: 1)
     }
+    if self.spacing != 0 {
+      try visitor.visitSingularInt64Field(value: self.spacing, fieldNumber: 2)
+    }
+    if self.alignment != .unspecified {
+      try visitor.visitSingularEnumField(value: self.alignment, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: RPRow, rhs: RPRow) -> Bool {
     if lhs.children != rhs.children {return false}
+    if lhs.spacing != rhs.spacing {return false}
+    if lhs.alignment != rhs.alignment {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -285,7 +303,7 @@ extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
 
 extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPColumn"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}spacing\0\u{1}alignment\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -294,6 +312,8 @@ extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.children) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.spacing) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.alignment) }()
       default: break
       }
     }
@@ -303,11 +323,19 @@ extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
     if !self.children.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.children, fieldNumber: 1)
     }
+    if self.spacing != 0 {
+      try visitor.visitSingularInt64Field(value: self.spacing, fieldNumber: 2)
+    }
+    if self.alignment != .unspecified {
+      try visitor.visitSingularEnumField(value: self.alignment, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: RPColumn, rhs: RPColumn) -> Bool {
     if lhs.children != rhs.children {return false}
+    if lhs.spacing != rhs.spacing {return false}
+    if lhs.alignment != rhs.alignment {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

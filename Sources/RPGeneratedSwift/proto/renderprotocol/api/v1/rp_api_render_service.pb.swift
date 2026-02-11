@@ -42,11 +42,11 @@ public struct RPFetchRenderTreeResponse: Sendable {
   public var id: String = String()
 
   public var view: RPWidget {
-    get {return _view ?? RPWidget()}
+    get {_view ?? RPWidget()}
     set {_view = newValue}
   }
   /// Returns true if `view` has been explicitly set.
-  public var hasView: Bool {return self._view != nil}
+  public var hasView: Bool {self._view != nil}
   /// Clears the value of `view`. Subsequent reads from it will return its default value.
   public mutating func clearView() {self._view = nil}
 
