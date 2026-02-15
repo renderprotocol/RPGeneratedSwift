@@ -33,7 +33,7 @@ jobs:
           setup_only: true
 
       - name: Update submodule to latest
-        run: make update-protos
+        run: make init-protos
 
       - name: Generate Swift code
         run: make

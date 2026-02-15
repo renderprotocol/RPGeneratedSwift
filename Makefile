@@ -14,11 +14,15 @@ OUTPUT_DIR := Sources/RPGeneratedSwift
 
 # ------------------------------- TASKS ----------------------------------------
 
-.PHONY: all generate clean update-protos
+.PHONY: all generate clean update-protos init-protos
 
 all: generate
 
-# 1. Update the submodule to get the latest .proto definitions
+# 1. Init/Update the submodule to get the latest .proto definitions
+init-protos:
+	@echo "🔄 Initializing submodule..."
+	git submodule update --init --remote
+
 update-protos:
 	@echo "🔄 Updating submodule..."
 	git submodule update --remote --merge
