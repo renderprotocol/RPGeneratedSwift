@@ -31,7 +31,114 @@ public struct RPColor: Sendable {
 
   public var blue: Int32 = 0
 
+  public var opacity: Float {
+    get {_opacity ?? 0}
+    set {_opacity = newValue}
+  }
+  /// Returns true if `opacity` has been explicitly set.
+  public var hasOpacity: Bool {self._opacity != nil}
+  /// Clears the value of `opacity`. Subsequent reads from it will return its default value.
+  public mutating func clearOpacity() {self._opacity = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _opacity: Float? = nil
+}
+
+public struct RPGradientStop: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var color: RPColor {
+    get {_color ?? RPColor()}
+    set {_color = newValue}
+  }
+  /// Returns true if `color` has been explicitly set.
+  public var hasColor: Bool {self._color != nil}
+  /// Clears the value of `color`. Subsequent reads from it will return its default value.
+  public mutating func clearColor() {self._color = nil}
+
+  public var position: Float = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _color: RPColor? = nil
+}
+
+public struct RPLinearGradient: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var stops: [RPGradientStop] = []
+
+  public var startPoint: RPAlignment = .unspecified
+
+  public var endPoint: RPAlignment = .unspecified
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct RPRadialGradient: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var stops: [RPGradientStop] = []
+
+  public var radius: Float = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct RPColorValue: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var value: RPColorValue.OneOf_Value? = nil
+
+  public var solid: RPColor {
+    get {
+      if case .solid(let v)? = value {return v}
+      return RPColor()
+    }
+    set {value = .solid(newValue)}
+  }
+
+  public var linearGradient: RPLinearGradient {
+    get {
+      if case .linearGradient(let v)? = value {return v}
+      return RPLinearGradient()
+    }
+    set {value = .linearGradient(newValue)}
+  }
+
+  public var radialGradient: RPRadialGradient {
+    get {
+      if case .radialGradient(let v)? = value {return v}
+      return RPRadialGradient()
+    }
+    set {value = .radialGradient(newValue)}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum OneOf_Value: Equatable, Sendable {
+    case solid(RPColor)
+    case linearGradient(RPLinearGradient)
+    case radialGradient(RPRadialGradient)
+
+  }
 
   public init() {}
 }
@@ -42,7 +149,7 @@ fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
 extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPColor"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}red\0\u{1}green\0\u{1}blue\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}red\0\u{1}green\0\u{1}blue\0\u{1}opacity\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -53,12 +160,17 @@ extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.red) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.green) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.blue) }()
+      case 4: try { try decoder.decodeSingularFloatField(value: &self._opacity) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.red != 0 {
       try visitor.visitSingularInt32Field(value: self.red, fieldNumber: 1)
     }
@@ -68,6 +180,9 @@ extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     if self.blue != 0 {
       try visitor.visitSingularInt32Field(value: self.blue, fieldNumber: 3)
     }
+    try { if let v = self._opacity {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 4)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -75,6 +190,205 @@ extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     if lhs.red != rhs.red {return false}
     if lhs.green != rhs.green {return false}
     if lhs.blue != rhs.blue {return false}
+    if lhs._opacity != rhs._opacity {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPGradientStop: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPGradientStop"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}color\0\u{1}position\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._color) }()
+      case 2: try { try decoder.decodeSingularFloatField(value: &self.position) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._color {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    if self.position.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.position, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPGradientStop, rhs: RPGradientStop) -> Bool {
+    if lhs._color != rhs._color {return false}
+    if lhs.position != rhs.position {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPLinearGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPLinearGradient"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stops\0\u{3}start_point\0\u{3}end_point\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.stops) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.startPoint) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.endPoint) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.stops.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.stops, fieldNumber: 1)
+    }
+    if self.startPoint != .unspecified {
+      try visitor.visitSingularEnumField(value: self.startPoint, fieldNumber: 2)
+    }
+    if self.endPoint != .unspecified {
+      try visitor.visitSingularEnumField(value: self.endPoint, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPLinearGradient, rhs: RPLinearGradient) -> Bool {
+    if lhs.stops != rhs.stops {return false}
+    if lhs.startPoint != rhs.startPoint {return false}
+    if lhs.endPoint != rhs.endPoint {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPRadialGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPRadialGradient"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stops\0\u{1}radius\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.stops) }()
+      case 2: try { try decoder.decodeSingularFloatField(value: &self.radius) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.stops.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.stops, fieldNumber: 1)
+    }
+    if self.radius.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.radius, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPRadialGradient, rhs: RPRadialGradient) -> Bool {
+    if lhs.stops != rhs.stops {return false}
+    if lhs.radius != rhs.radius {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPColorValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPColorValue"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}solid\0\u{3}linear_gradient\0\u{3}radial_gradient\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: RPColor?
+        var hadOneofValue = false
+        if let current = self.value {
+          hadOneofValue = true
+          if case .solid(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.value = .solid(v)
+        }
+      }()
+      case 2: try {
+        var v: RPLinearGradient?
+        var hadOneofValue = false
+        if let current = self.value {
+          hadOneofValue = true
+          if case .linearGradient(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.value = .linearGradient(v)
+        }
+      }()
+      case 3: try {
+        var v: RPRadialGradient?
+        var hadOneofValue = false
+        if let current = self.value {
+          hadOneofValue = true
+          if case .radialGradient(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.value = .radialGradient(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    switch self.value {
+    case .solid?: try {
+      guard case .solid(let v)? = self.value else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .linearGradient?: try {
+      guard case .linearGradient(let v)? = self.value else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case .radialGradient?: try {
+      guard case .radialGradient(let v)? = self.value else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPColorValue, rhs: RPColorValue) -> Bool {
+    if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

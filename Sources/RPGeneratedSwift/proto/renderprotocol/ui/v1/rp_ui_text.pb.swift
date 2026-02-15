@@ -20,6 +20,244 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum RPFontWeight: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case thin // = 1
+  case extraLight // = 2
+  case light // = 3
+  case regular // = 4
+  case medium // = 5
+  case semiBold // = 6
+  case bold // = 7
+  case extraBold // = 8
+  case black // = 9
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .thin
+    case 2: self = .extraLight
+    case 3: self = .light
+    case 4: self = .regular
+    case 5: self = .medium
+    case 6: self = .semiBold
+    case 7: self = .bold
+    case 8: self = .extraBold
+    case 9: self = .black
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .thin: return 1
+    case .extraLight: return 2
+    case .light: return 3
+    case .regular: return 4
+    case .medium: return 5
+    case .semiBold: return 6
+    case .bold: return 7
+    case .extraBold: return 8
+    case .black: return 9
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [RPFontWeight] = [
+    .unspecified,
+    .thin,
+    .extraLight,
+    .light,
+    .regular,
+    .medium,
+    .semiBold,
+    .bold,
+    .extraBold,
+    .black,
+  ]
+
+}
+
+public enum RPFontStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case normal // = 1
+  case italic // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .normal
+    case 2: self = .italic
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .normal: return 1
+    case .italic: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [RPFontStyle] = [
+    .unspecified,
+    .normal,
+    .italic,
+  ]
+
+}
+
+public enum RPTextDecoration: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case none // = 1
+  case underline // = 2
+  case lineThrough // = 3
+  case overline // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .none
+    case 2: self = .underline
+    case 3: self = .lineThrough
+    case 4: self = .overline
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .none: return 1
+    case .underline: return 2
+    case .lineThrough: return 3
+    case .overline: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [RPTextDecoration] = [
+    .unspecified,
+    .none,
+    .underline,
+    .lineThrough,
+    .overline,
+  ]
+
+}
+
+public enum RPTextOverflow: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case clip // = 1
+  case ellipsis // = 2
+  case fade // = 3
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .clip
+    case 2: self = .ellipsis
+    case 3: self = .fade
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .clip: return 1
+    case .ellipsis: return 2
+    case .fade: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [RPTextOverflow] = [
+    .unspecified,
+    .clip,
+    .ellipsis,
+    .fade,
+  ]
+
+}
+
+public enum RPTextAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case left // = 1
+  case center // = 2
+  case right // = 3
+  case justify // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .left
+    case 2: self = .center
+    case 3: self = .right
+    case 4: self = .justify
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .left: return 1
+    case .center: return 2
+    case .right: return 3
+    case .justify: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [RPTextAlignment] = [
+    .unspecified,
+    .left,
+    .center,
+    .right,
+    .justify,
+  ]
+
+}
+
 public struct RPText: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -27,18 +265,130 @@ public struct RPText: Sendable {
 
   public var value: String = String()
 
+  public var style: RPTextStyle {
+    get {_style ?? RPTextStyle()}
+    set {_style = newValue}
+  }
+  /// Returns true if `style` has been explicitly set.
+  public var hasStyle: Bool {self._style != nil}
+  /// Clears the value of `style`. Subsequent reads from it will return its default value.
+  public mutating func clearStyle() {self._style = nil}
+
+  public var maxLines: Int32 {
+    get {_maxLines ?? 0}
+    set {_maxLines = newValue}
+  }
+  /// Returns true if `maxLines` has been explicitly set.
+  public var hasMaxLines: Bool {self._maxLines != nil}
+  /// Clears the value of `maxLines`. Subsequent reads from it will return its default value.
+  public mutating func clearMaxLines() {self._maxLines = nil}
+
+  public var overflow: RPTextOverflow = .unspecified
+
+  public var textAlignment: RPTextAlignment = .unspecified
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _style: RPTextStyle? = nil
+  fileprivate var _maxLines: Int32? = nil
+}
+
+public struct RPTextStyle: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var fontSize: Float {
+    get {_fontSize ?? 0}
+    set {_fontSize = newValue}
+  }
+  /// Returns true if `fontSize` has been explicitly set.
+  public var hasFontSize: Bool {self._fontSize != nil}
+  /// Clears the value of `fontSize`. Subsequent reads from it will return its default value.
+  public mutating func clearFontSize() {self._fontSize = nil}
+
+  public var fontWeight: RPFontWeight = .unspecified
+
+  public var color: RPColor {
+    get {_color ?? RPColor()}
+    set {_color = newValue}
+  }
+  /// Returns true if `color` has been explicitly set.
+  public var hasColor: Bool {self._color != nil}
+  /// Clears the value of `color`. Subsequent reads from it will return its default value.
+  public mutating func clearColor() {self._color = nil}
+
+  public var lineHeight: Float {
+    get {_lineHeight ?? 0}
+    set {_lineHeight = newValue}
+  }
+  /// Returns true if `lineHeight` has been explicitly set.
+  public var hasLineHeight: Bool {self._lineHeight != nil}
+  /// Clears the value of `lineHeight`. Subsequent reads from it will return its default value.
+  public mutating func clearLineHeight() {self._lineHeight = nil}
+
+  public var letterSpacing: Float {
+    get {_letterSpacing ?? 0}
+    set {_letterSpacing = newValue}
+  }
+  /// Returns true if `letterSpacing` has been explicitly set.
+  public var hasLetterSpacing: Bool {self._letterSpacing != nil}
+  /// Clears the value of `letterSpacing`. Subsequent reads from it will return its default value.
+  public mutating func clearLetterSpacing() {self._letterSpacing = nil}
+
+  public var decoration: RPTextDecoration = .unspecified
+
+  public var fontFamily: String {
+    get {_fontFamily ?? String()}
+    set {_fontFamily = newValue}
+  }
+  /// Returns true if `fontFamily` has been explicitly set.
+  public var hasFontFamily: Bool {self._fontFamily != nil}
+  /// Clears the value of `fontFamily`. Subsequent reads from it will return its default value.
+  public mutating func clearFontFamily() {self._fontFamily = nil}
+
+  public var fontStyle: RPFontStyle = .unspecified
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _fontSize: Float? = nil
+  fileprivate var _color: RPColor? = nil
+  fileprivate var _lineHeight: Float? = nil
+  fileprivate var _letterSpacing: Float? = nil
+  fileprivate var _fontFamily: String? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
+extension RPFontWeight: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_FONT_WEIGHT_UNSPECIFIED\0\u{1}RP_FONT_WEIGHT_THIN\0\u{1}RP_FONT_WEIGHT_EXTRA_LIGHT\0\u{1}RP_FONT_WEIGHT_LIGHT\0\u{1}RP_FONT_WEIGHT_REGULAR\0\u{1}RP_FONT_WEIGHT_MEDIUM\0\u{1}RP_FONT_WEIGHT_SEMI_BOLD\0\u{1}RP_FONT_WEIGHT_BOLD\0\u{1}RP_FONT_WEIGHT_EXTRA_BOLD\0\u{1}RP_FONT_WEIGHT_BLACK\0")
+}
+
+extension RPFontStyle: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_FONT_STYLE_UNSPECIFIED\0\u{1}RP_FONT_STYLE_NORMAL\0\u{1}RP_FONT_STYLE_ITALIC\0")
+}
+
+extension RPTextDecoration: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_TEXT_DECORATION_UNSPECIFIED\0\u{1}RP_TEXT_DECORATION_NONE\0\u{1}RP_TEXT_DECORATION_UNDERLINE\0\u{1}RP_TEXT_DECORATION_LINE_THROUGH\0\u{1}RP_TEXT_DECORATION_OVERLINE\0")
+}
+
+extension RPTextOverflow: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_TEXT_OVERFLOW_UNSPECIFIED\0\u{1}RP_TEXT_OVERFLOW_CLIP\0\u{1}RP_TEXT_OVERFLOW_ELLIPSIS\0\u{1}RP_TEXT_OVERFLOW_FADE\0")
+}
+
+extension RPTextAlignment: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_TEXT_ALIGNMENT_UNSPECIFIED\0\u{1}RP_TEXT_ALIGNMENT_LEFT\0\u{1}RP_TEXT_ALIGNMENT_CENTER\0\u{1}RP_TEXT_ALIGNMENT_RIGHT\0\u{1}RP_TEXT_ALIGNMENT_JUSTIFY\0")
+}
+
 extension RPText: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPText"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0\u{1}style\0\u{3}max_lines\0\u{1}overflow\0\u{3}text_alignment\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -47,20 +397,113 @@ extension RPText: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.value) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._style) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._maxLines) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.overflow) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.textAlignment) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.value.isEmpty {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
+    }
+    try { if let v = self._style {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._maxLines {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    if self.overflow != .unspecified {
+      try visitor.visitSingularEnumField(value: self.overflow, fieldNumber: 4)
+    }
+    if self.textAlignment != .unspecified {
+      try visitor.visitSingularEnumField(value: self.textAlignment, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: RPText, rhs: RPText) -> Bool {
     if lhs.value != rhs.value {return false}
+    if lhs._style != rhs._style {return false}
+    if lhs._maxLines != rhs._maxLines {return false}
+    if lhs.overflow != rhs.overflow {return false}
+    if lhs.textAlignment != rhs.textAlignment {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPTextStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPTextStyle"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}font_size\0\u{3}font_weight\0\u{1}color\0\u{3}line_height\0\u{3}letter_spacing\0\u{1}decoration\0\u{3}font_family\0\u{3}font_style\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularFloatField(value: &self._fontSize) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.fontWeight) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._color) }()
+      case 4: try { try decoder.decodeSingularFloatField(value: &self._lineHeight) }()
+      case 5: try { try decoder.decodeSingularFloatField(value: &self._letterSpacing) }()
+      case 6: try { try decoder.decodeSingularEnumField(value: &self.decoration) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self._fontFamily) }()
+      case 8: try { try decoder.decodeSingularEnumField(value: &self.fontStyle) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._fontSize {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 1)
+    } }()
+    if self.fontWeight != .unspecified {
+      try visitor.visitSingularEnumField(value: self.fontWeight, fieldNumber: 2)
+    }
+    try { if let v = self._color {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._lineHeight {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._letterSpacing {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 5)
+    } }()
+    if self.decoration != .unspecified {
+      try visitor.visitSingularEnumField(value: self.decoration, fieldNumber: 6)
+    }
+    try { if let v = self._fontFamily {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+    } }()
+    if self.fontStyle != .unspecified {
+      try visitor.visitSingularEnumField(value: self.fontStyle, fieldNumber: 8)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPTextStyle, rhs: RPTextStyle) -> Bool {
+    if lhs._fontSize != rhs._fontSize {return false}
+    if lhs.fontWeight != rhs.fontWeight {return false}
+    if lhs._color != rhs._color {return false}
+    if lhs._lineHeight != rhs._lineHeight {return false}
+    if lhs._letterSpacing != rhs._letterSpacing {return false}
+    if lhs.decoration != rhs.decoration {return false}
+    if lhs._fontFamily != rhs._fontFamily {return false}
+    if lhs.fontStyle != rhs.fontStyle {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

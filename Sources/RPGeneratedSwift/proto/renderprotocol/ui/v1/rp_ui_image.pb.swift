@@ -20,6 +20,52 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum RPContentMode: SwiftProtobuf.Enum, Swift.CaseIterable {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case fit // = 1
+  case fill // = 2
+  case stretch // = 3
+  case none // = 4
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .fit
+    case 2: self = .fill
+    case 3: self = .stretch
+    case 4: self = .none
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .fit: return 1
+    case .fill: return 2
+    case .stretch: return 3
+    case .none: return 4
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static let allCases: [RPContentMode] = [
+    .unspecified,
+    .fit,
+    .fill,
+    .stretch,
+    .none,
+  ]
+
+}
+
 public struct RPImage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -27,18 +73,75 @@ public struct RPImage: Sendable {
 
   public var url: String = String()
 
+  public var width: Float {
+    get {_width ?? 0}
+    set {_width = newValue}
+  }
+  /// Returns true if `width` has been explicitly set.
+  public var hasWidth: Bool {self._width != nil}
+  /// Clears the value of `width`. Subsequent reads from it will return its default value.
+  public mutating func clearWidth() {self._width = nil}
+
+  public var height: Float {
+    get {_height ?? 0}
+    set {_height = newValue}
+  }
+  /// Returns true if `height` has been explicitly set.
+  public var hasHeight: Bool {self._height != nil}
+  /// Clears the value of `height`. Subsequent reads from it will return its default value.
+  public mutating func clearHeight() {self._height = nil}
+
+  public var contentMode: RPContentMode = .unspecified
+
+  public var placeholderURL: String {
+    get {_placeholderURL ?? String()}
+    set {_placeholderURL = newValue}
+  }
+  /// Returns true if `placeholderURL` has been explicitly set.
+  public var hasPlaceholderURL: Bool {self._placeholderURL != nil}
+  /// Clears the value of `placeholderURL`. Subsequent reads from it will return its default value.
+  public mutating func clearPlaceholderURL() {self._placeholderURL = nil}
+
+  public var tintColor: RPColor {
+    get {_tintColor ?? RPColor()}
+    set {_tintColor = newValue}
+  }
+  /// Returns true if `tintColor` has been explicitly set.
+  public var hasTintColor: Bool {self._tintColor != nil}
+  /// Clears the value of `tintColor`. Subsequent reads from it will return its default value.
+  public mutating func clearTintColor() {self._tintColor = nil}
+
+  public var altText: String {
+    get {_altText ?? String()}
+    set {_altText = newValue}
+  }
+  /// Returns true if `altText` has been explicitly set.
+  public var hasAltText: Bool {self._altText != nil}
+  /// Clears the value of `altText`. Subsequent reads from it will return its default value.
+  public mutating func clearAltText() {self._altText = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _width: Float? = nil
+  fileprivate var _height: Float? = nil
+  fileprivate var _placeholderURL: String? = nil
+  fileprivate var _tintColor: RPColor? = nil
+  fileprivate var _altText: String? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
+extension RPContentMode: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_CONTENT_MODE_UNSPECIFIED\0\u{1}RP_CONTENT_MODE_FIT\0\u{1}RP_CONTENT_MODE_FILL\0\u{1}RP_CONTENT_MODE_STRETCH\0\u{1}RP_CONTENT_MODE_NONE\0")
+}
+
 extension RPImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPImage"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}url\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}url\0\u{1}width\0\u{1}height\0\u{3}content_mode\0\u{3}placeholder_url\0\u{3}tint_color\0\u{3}alt_text\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -47,20 +150,54 @@ extension RPImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.url) }()
+      case 2: try { try decoder.decodeSingularFloatField(value: &self._width) }()
+      case 3: try { try decoder.decodeSingularFloatField(value: &self._height) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.contentMode) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self._placeholderURL) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._tintColor) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self._altText) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.url.isEmpty {
       try visitor.visitSingularStringField(value: self.url, fieldNumber: 1)
     }
+    try { if let v = self._width {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._height {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 3)
+    } }()
+    if self.contentMode != .unspecified {
+      try visitor.visitSingularEnumField(value: self.contentMode, fieldNumber: 4)
+    }
+    try { if let v = self._placeholderURL {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._tintColor {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
+    try { if let v = self._altText {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: RPImage, rhs: RPImage) -> Bool {
     if lhs.url != rhs.url {return false}
+    if lhs._width != rhs._width {return false}
+    if lhs._height != rhs._height {return false}
+    if lhs.contentMode != rhs.contentMode {return false}
+    if lhs._placeholderURL != rhs._placeholderURL {return false}
+    if lhs._tintColor != rhs._tintColor {return false}
+    if lhs._altText != rhs._altText {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

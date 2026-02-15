@@ -35,6 +35,7 @@ public struct RPWidget: @unchecked Sendable {
     set {_uniqueStorage()._content = newValue}
   }
 
+  /// Layout (51–69)
   public var row: RPRow {
     get {
       if case .row(let v)? = _storage._content {return v}
@@ -59,14 +60,144 @@ public struct RPWidget: @unchecked Sendable {
     set {_uniqueStorage()._content = .stack(newValue)}
   }
 
-  public var container: RPContainer {
+  public var scrollView: RPScrollView {
     get {
-      if case .container(let v)? = _storage._content {return v}
-      return RPContainer()
+      if case .scrollView(let v)? = _storage._content {return v}
+      return RPScrollView()
     }
-    set {_uniqueStorage()._content = .container(newValue)}
+    set {_uniqueStorage()._content = .scrollView(newValue)}
   }
 
+  public var lazyList: RPLazyList {
+    get {
+      if case .lazyList(let v)? = _storage._content {return v}
+      return RPLazyList()
+    }
+    set {_uniqueStorage()._content = .lazyList(newValue)}
+  }
+
+  public var lazyGrid: RPLazyGrid {
+    get {
+      if case .lazyGrid(let v)? = _storage._content {return v}
+      return RPLazyGrid()
+    }
+    set {_uniqueStorage()._content = .lazyGrid(newValue)}
+  }
+
+  public var wrap: RPWrap {
+    get {
+      if case .wrap(let v)? = _storage._content {return v}
+      return RPWrap()
+    }
+    set {_uniqueStorage()._content = .wrap(newValue)}
+  }
+
+  public var center: RPCenter {
+    get {
+      if case .center(let v)? = _storage._content {return v}
+      return RPCenter()
+    }
+    set {_uniqueStorage()._content = .center(newValue)}
+  }
+
+  public var expanded: RPExpanded {
+    get {
+      if case .expanded(let v)? = _storage._content {return v}
+      return RPExpanded()
+    }
+    set {_uniqueStorage()._content = .expanded(newValue)}
+  }
+
+  /// Modifiers (70–89)
+  public var padding: RPPadding {
+    get {
+      if case .padding(let v)? = _storage._content {return v}
+      return RPPadding()
+    }
+    set {_uniqueStorage()._content = .padding(newValue)}
+  }
+
+  public var background: RPBackground {
+    get {
+      if case .background(let v)? = _storage._content {return v}
+      return RPBackground()
+    }
+    set {_uniqueStorage()._content = .background(newValue)}
+  }
+
+  public var border: RPBorder {
+    get {
+      if case .border(let v)? = _storage._content {return v}
+      return RPBorder()
+    }
+    set {_uniqueStorage()._content = .border(newValue)}
+  }
+
+  public var clip: RPClip {
+    get {
+      if case .clip(let v)? = _storage._content {return v}
+      return RPClip()
+    }
+    set {_uniqueStorage()._content = .clip(newValue)}
+  }
+
+  public var opacity: RPOpacity {
+    get {
+      if case .opacity(let v)? = _storage._content {return v}
+      return RPOpacity()
+    }
+    set {_uniqueStorage()._content = .opacity(newValue)}
+  }
+
+  public var visibility: RPVisibility {
+    get {
+      if case .visibility(let v)? = _storage._content {return v}
+      return RPVisibility()
+    }
+    set {_uniqueStorage()._content = .visibility(newValue)}
+  }
+
+  public var shadow: RPShadow {
+    get {
+      if case .shadow(let v)? = _storage._content {return v}
+      return RPShadow()
+    }
+    set {_uniqueStorage()._content = .shadow(newValue)}
+  }
+
+  public var sizeBox: RPSizeBox {
+    get {
+      if case .sizeBox(let v)? = _storage._content {return v}
+      return RPSizeBox()
+    }
+    set {_uniqueStorage()._content = .sizeBox(newValue)}
+  }
+
+  public var safeArea: RPSafeArea {
+    get {
+      if case .safeArea(let v)? = _storage._content {return v}
+      return RPSafeArea()
+    }
+    set {_uniqueStorage()._content = .safeArea(newValue)}
+  }
+
+  public var aspectRatio: RPAspectRatio {
+    get {
+      if case .aspectRatio(let v)? = _storage._content {return v}
+      return RPAspectRatio()
+    }
+    set {_uniqueStorage()._content = .aspectRatio(newValue)}
+  }
+
+  public var positioned: RPPositioned {
+    get {
+      if case .positioned(let v)? = _storage._content {return v}
+      return RPPositioned()
+    }
+    set {_uniqueStorage()._content = .positioned(newValue)}
+  }
+
+  /// Display (101–149)
   public var text: RPText {
     get {
       if case .text(let v)? = _storage._content {return v}
@@ -83,15 +214,175 @@ public struct RPWidget: @unchecked Sendable {
     set {_uniqueStorage()._content = .image(newValue)}
   }
 
+  public var icon: RPIcon {
+    get {
+      if case .icon(let v)? = _storage._content {return v}
+      return RPIcon()
+    }
+    set {_uniqueStorage()._content = .icon(newValue)}
+  }
+
+  public var spacer: RPSpacer {
+    get {
+      if case .spacer(let v)? = _storage._content {return v}
+      return RPSpacer()
+    }
+    set {_uniqueStorage()._content = .spacer(newValue)}
+  }
+
+  public var divider: RPDivider {
+    get {
+      if case .divider(let v)? = _storage._content {return v}
+      return RPDivider()
+    }
+    set {_uniqueStorage()._content = .divider(newValue)}
+  }
+
+  public var progressIndicator: RPProgressIndicator {
+    get {
+      if case .progressIndicator(let v)? = _storage._content {return v}
+      return RPProgressIndicator()
+    }
+    set {_uniqueStorage()._content = .progressIndicator(newValue)}
+  }
+
+  public var button: RPButton {
+    get {
+      if case .button(let v)? = _storage._content {return v}
+      return RPButton()
+    }
+    set {_uniqueStorage()._content = .button(newValue)}
+  }
+
+  /// Input (150–179)
+  public var textField: RPTextField {
+    get {
+      if case .textField(let v)? = _storage._content {return v}
+      return RPTextField()
+    }
+    set {_uniqueStorage()._content = .textField(newValue)}
+  }
+
+  public var toggle: RPToggle {
+    get {
+      if case .toggle(let v)? = _storage._content {return v}
+      return RPToggle()
+    }
+    set {_uniqueStorage()._content = .toggle(newValue)}
+  }
+
+  public var slider: RPSlider {
+    get {
+      if case .slider(let v)? = _storage._content {return v}
+      return RPSlider()
+    }
+    set {_uniqueStorage()._content = .slider(newValue)}
+  }
+
+  /// Composite (180–199)
+  public var card: RPCard {
+    get {
+      if case .card(let v)? = _storage._content {return v}
+      return RPCard()
+    }
+    set {_uniqueStorage()._content = .card(newValue)}
+  }
+
+  public var listTile: RPListTile {
+    get {
+      if case .listTile(let v)? = _storage._content {return v}
+      return RPListTile()
+    }
+    set {_uniqueStorage()._content = .listTile(newValue)}
+  }
+
+  public var appBar: RPAppBar {
+    get {
+      if case .appBar(let v)? = _storage._content {return v}
+      return RPAppBar()
+    }
+    set {_uniqueStorage()._content = .appBar(newValue)}
+  }
+
+  public var bottomNavBar: RPBottomNavBar {
+    get {
+      if case .bottomNavBar(let v)? = _storage._content {return v}
+      return RPBottomNavBar()
+    }
+    set {_uniqueStorage()._content = .bottomNavBar(newValue)}
+  }
+
+  public var badge: RPBadge {
+    get {
+      if case .badge(let v)? = _storage._content {return v}
+      return RPBadge()
+    }
+    set {_uniqueStorage()._content = .badge(newValue)}
+  }
+
+  public var scaffold: RPScaffold {
+    get {
+      if case .scaffold(let v)? = _storage._content {return v}
+      return RPScaffold()
+    }
+    set {_uniqueStorage()._content = .scaffold(newValue)}
+  }
+
+  /// Interactive (200–219)
+  public var gestureDetector: RPGestureDetector {
+    get {
+      if case .gestureDetector(let v)? = _storage._content {return v}
+      return RPGestureDetector()
+    }
+    set {_uniqueStorage()._content = .gestureDetector(newValue)}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Content: Equatable, Sendable {
+    /// Layout (51–69)
     case row(RPRow)
     case column(RPColumn)
     case stack(RPStack)
-    case container(RPContainer)
+    case scrollView(RPScrollView)
+    case lazyList(RPLazyList)
+    case lazyGrid(RPLazyGrid)
+    case wrap(RPWrap)
+    case center(RPCenter)
+    case expanded(RPExpanded)
+    /// Modifiers (70–89)
+    case padding(RPPadding)
+    case background(RPBackground)
+    case border(RPBorder)
+    case clip(RPClip)
+    case opacity(RPOpacity)
+    case visibility(RPVisibility)
+    case shadow(RPShadow)
+    case sizeBox(RPSizeBox)
+    case safeArea(RPSafeArea)
+    case aspectRatio(RPAspectRatio)
+    case positioned(RPPositioned)
+    /// Display (101–149)
     case text(RPText)
     case image(RPImage)
+    case icon(RPIcon)
+    case spacer(RPSpacer)
+    case divider(RPDivider)
+    case progressIndicator(RPProgressIndicator)
+    case button(RPButton)
+    /// Input (150–179)
+    case textField(RPTextField)
+    case toggle(RPToggle)
+    case slider(RPSlider)
+    /// Composite (180–199)
+    case card(RPCard)
+    case listTile(RPListTile)
+    case appBar(RPAppBar)
+    case bottomNavBar(RPBottomNavBar)
+    case badge(RPBadge)
+    case scaffold(RPScaffold)
+    /// Interactive (200–219)
+    case gestureDetector(RPGestureDetector)
 
   }
 
@@ -139,12 +430,178 @@ public struct RPStack: Sendable {
 
   public var children: [RPWidget] = []
 
+  public var alignment: RPAlignment = .unspecified
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
-public struct RPContainer: @unchecked Sendable {
+public struct RPScrollView: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var axis: RPAxis {
+    get {_storage._axis}
+    set {_uniqueStorage()._axis = newValue}
+  }
+
+  public var showsIndicators: Bool {
+    get {_storage._showsIndicators}
+    set {_uniqueStorage()._showsIndicators = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPLazyList: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var children: [RPWidget] {
+    get {_storage._children}
+    set {_uniqueStorage()._children = newValue}
+  }
+
+  public var axis: RPAxis {
+    get {_storage._axis}
+    set {_uniqueStorage()._axis = newValue}
+  }
+
+  public var spacing: Float {
+    get {_storage._spacing}
+    set {_uniqueStorage()._spacing = newValue}
+  }
+
+  public var showsIndicators: Bool {
+    get {_storage._showsIndicators}
+    set {_uniqueStorage()._showsIndicators = newValue}
+  }
+
+  public var separator: RPWidget {
+    get {_storage._separator ?? RPWidget()}
+    set {_uniqueStorage()._separator = newValue}
+  }
+  /// Returns true if `separator` has been explicitly set.
+  public var hasSeparator: Bool {_storage._separator != nil}
+  /// Clears the value of `separator`. Subsequent reads from it will return its default value.
+  public mutating func clearSeparator() {_uniqueStorage()._separator = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPLazyGrid: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var children: [RPWidget] = []
+
+  public var layout: RPGridLayout {
+    get {_layout ?? RPGridLayout()}
+    set {_layout = newValue}
+  }
+  /// Returns true if `layout` has been explicitly set.
+  public var hasLayout: Bool {self._layout != nil}
+  /// Clears the value of `layout`. Subsequent reads from it will return its default value.
+  public mutating func clearLayout() {self._layout = nil}
+
+  public var spacing: Float = 0
+
+  public var runSpacing: Float = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _layout: RPGridLayout? = nil
+}
+
+public struct RPWrap: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var children: [RPWidget] = []
+
+  public var spacing: Float = 0
+
+  public var runSpacing: Float = 0
+
+  public var alignment: RPAlignment = .unspecified
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct RPCenter: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPExpanded: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var flex: Int32 {
+    get {_storage._flex}
+    set {_uniqueStorage()._flex = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPPadding: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -163,47 +620,835 @@ public struct RPContainer: @unchecked Sendable {
     set {_uniqueStorage()._value = newValue}
   }
 
-  public var border: RPBorder {
+  public var all: Float {
     get {
-      if case .border(let v)? = _storage._value {return v}
-      return RPBorder()
+      if case .all(let v)? = _storage._value {return v}
+      return 0
     }
-    set {_uniqueStorage()._value = .border(newValue)}
+    set {_uniqueStorage()._value = .all(newValue)}
   }
 
-  public var padding: RPPadding {
+  public var symmetric: RPSymmetricPadding {
     get {
-      if case .padding(let v)? = _storage._value {return v}
-      return RPPadding()
+      if case .symmetric(let v)? = _storage._value {return v}
+      return RPSymmetricPadding()
     }
-    set {_uniqueStorage()._value = .padding(newValue)}
+    set {_uniqueStorage()._value = .symmetric(newValue)}
   }
 
-  public var backgroundColor: RPColor {
+  public var explicit: RPExplicitPadding {
     get {
-      if case .backgroundColor(let v)? = _storage._value {return v}
-      return RPColor()
+      if case .explicit(let v)? = _storage._value {return v}
+      return RPExplicitPadding()
     }
-    set {_uniqueStorage()._value = .backgroundColor(newValue)}
-  }
-
-  public var clip: RPClip {
-    get {
-      if case .clip(let v)? = _storage._value {return v}
-      return RPClip()
-    }
-    set {_uniqueStorage()._value = .clip(newValue)}
+    set {_uniqueStorage()._value = .explicit(newValue)}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Value: Equatable, Sendable {
-    case border(RPBorder)
-    case padding(RPPadding)
-    case backgroundColor(RPColor)
-    case clip(RPClip)
+    case all(Float)
+    case symmetric(RPSymmetricPadding)
+    case explicit(RPExplicitPadding)
 
   }
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPBackground: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var color: RPColor {
+    get {_storage._color ?? RPColor()}
+    set {_uniqueStorage()._color = newValue}
+  }
+  /// Returns true if `color` has been explicitly set.
+  public var hasColor: Bool {_storage._color != nil}
+  /// Clears the value of `color`. Subsequent reads from it will return its default value.
+  public mutating func clearColor() {_uniqueStorage()._color = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPBorder: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var width: Float {
+    get {_storage._width}
+    set {_uniqueStorage()._width = newValue}
+  }
+
+  public var color: RPColor {
+    get {_storage._color ?? RPColor()}
+    set {_uniqueStorage()._color = newValue}
+  }
+  /// Returns true if `color` has been explicitly set.
+  public var hasColor: Bool {_storage._color != nil}
+  /// Clears the value of `color`. Subsequent reads from it will return its default value.
+  public mutating func clearColor() {_uniqueStorage()._color = nil}
+
+  public var radius: Float {
+    get {_storage._radius ?? 0}
+    set {_uniqueStorage()._radius = newValue}
+  }
+  /// Returns true if `radius` has been explicitly set.
+  public var hasRadius: Bool {_storage._radius != nil}
+  /// Clears the value of `radius`. Subsequent reads from it will return its default value.
+  public mutating func clearRadius() {_uniqueStorage()._radius = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPClip: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var shape: RPClipShape {
+    get {_storage._shape ?? RPClipShape()}
+    set {_uniqueStorage()._shape = newValue}
+  }
+  /// Returns true if `shape` has been explicitly set.
+  public var hasShape: Bool {_storage._shape != nil}
+  /// Clears the value of `shape`. Subsequent reads from it will return its default value.
+  public mutating func clearShape() {_uniqueStorage()._shape = nil}
+
+  public var type: RPClipType {
+    get {_storage._type}
+    set {_uniqueStorage()._type = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPOpacity: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var value: Float {
+    get {_storage._value}
+    set {_uniqueStorage()._value = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPVisibility: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var visible: Bool {
+    get {_storage._visible}
+    set {_uniqueStorage()._visible = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPShadow: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var color: RPColor {
+    get {_storage._color ?? RPColor()}
+    set {_uniqueStorage()._color = newValue}
+  }
+  /// Returns true if `color` has been explicitly set.
+  public var hasColor: Bool {_storage._color != nil}
+  /// Clears the value of `color`. Subsequent reads from it will return its default value.
+  public mutating func clearColor() {_uniqueStorage()._color = nil}
+
+  public var radius: Float {
+    get {_storage._radius}
+    set {_uniqueStorage()._radius = newValue}
+  }
+
+  public var offsetX: Float {
+    get {_storage._offsetX}
+    set {_uniqueStorage()._offsetX = newValue}
+  }
+
+  public var offsetY: Float {
+    get {_storage._offsetY}
+    set {_uniqueStorage()._offsetY = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPSizeBox: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var width: Float {
+    get {_storage._width ?? 0}
+    set {_uniqueStorage()._width = newValue}
+  }
+  /// Returns true if `width` has been explicitly set.
+  public var hasWidth: Bool {_storage._width != nil}
+  /// Clears the value of `width`. Subsequent reads from it will return its default value.
+  public mutating func clearWidth() {_uniqueStorage()._width = nil}
+
+  public var height: Float {
+    get {_storage._height ?? 0}
+    set {_uniqueStorage()._height = newValue}
+  }
+  /// Returns true if `height` has been explicitly set.
+  public var hasHeight: Bool {_storage._height != nil}
+  /// Clears the value of `height`. Subsequent reads from it will return its default value.
+  public mutating func clearHeight() {_uniqueStorage()._height = nil}
+
+  public var minWidth: Float {
+    get {_storage._minWidth ?? 0}
+    set {_uniqueStorage()._minWidth = newValue}
+  }
+  /// Returns true if `minWidth` has been explicitly set.
+  public var hasMinWidth: Bool {_storage._minWidth != nil}
+  /// Clears the value of `minWidth`. Subsequent reads from it will return its default value.
+  public mutating func clearMinWidth() {_uniqueStorage()._minWidth = nil}
+
+  public var minHeight: Float {
+    get {_storage._minHeight ?? 0}
+    set {_uniqueStorage()._minHeight = newValue}
+  }
+  /// Returns true if `minHeight` has been explicitly set.
+  public var hasMinHeight: Bool {_storage._minHeight != nil}
+  /// Clears the value of `minHeight`. Subsequent reads from it will return its default value.
+  public mutating func clearMinHeight() {_uniqueStorage()._minHeight = nil}
+
+  public var maxWidth: Float {
+    get {_storage._maxWidth ?? 0}
+    set {_uniqueStorage()._maxWidth = newValue}
+  }
+  /// Returns true if `maxWidth` has been explicitly set.
+  public var hasMaxWidth: Bool {_storage._maxWidth != nil}
+  /// Clears the value of `maxWidth`. Subsequent reads from it will return its default value.
+  public mutating func clearMaxWidth() {_uniqueStorage()._maxWidth = nil}
+
+  public var maxHeight: Float {
+    get {_storage._maxHeight ?? 0}
+    set {_uniqueStorage()._maxHeight = newValue}
+  }
+  /// Returns true if `maxHeight` has been explicitly set.
+  public var hasMaxHeight: Bool {_storage._maxHeight != nil}
+  /// Clears the value of `maxHeight`. Subsequent reads from it will return its default value.
+  public mutating func clearMaxHeight() {_uniqueStorage()._maxHeight = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPSafeArea: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var top: Bool {
+    get {_storage._top}
+    set {_uniqueStorage()._top = newValue}
+  }
+
+  public var bottom: Bool {
+    get {_storage._bottom}
+    set {_uniqueStorage()._bottom = newValue}
+  }
+
+  public var leading: Bool {
+    get {_storage._leading}
+    set {_uniqueStorage()._leading = newValue}
+  }
+
+  public var trailing: Bool {
+    get {_storage._trailing}
+    set {_uniqueStorage()._trailing = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPAspectRatio: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var ratio: Float {
+    get {_storage._ratio}
+    set {_uniqueStorage()._ratio = newValue}
+  }
+
+  public var contentMode: RPContentMode {
+    get {_storage._contentMode}
+    set {_uniqueStorage()._contentMode = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPPositioned: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var top: Float {
+    get {_storage._top ?? 0}
+    set {_uniqueStorage()._top = newValue}
+  }
+  /// Returns true if `top` has been explicitly set.
+  public var hasTop: Bool {_storage._top != nil}
+  /// Clears the value of `top`. Subsequent reads from it will return its default value.
+  public mutating func clearTop() {_uniqueStorage()._top = nil}
+
+  public var bottom: Float {
+    get {_storage._bottom ?? 0}
+    set {_uniqueStorage()._bottom = newValue}
+  }
+  /// Returns true if `bottom` has been explicitly set.
+  public var hasBottom: Bool {_storage._bottom != nil}
+  /// Clears the value of `bottom`. Subsequent reads from it will return its default value.
+  public mutating func clearBottom() {_uniqueStorage()._bottom = nil}
+
+  public var leading: Float {
+    get {_storage._leading ?? 0}
+    set {_uniqueStorage()._leading = newValue}
+  }
+  /// Returns true if `leading` has been explicitly set.
+  public var hasLeading: Bool {_storage._leading != nil}
+  /// Clears the value of `leading`. Subsequent reads from it will return its default value.
+  public mutating func clearLeading() {_uniqueStorage()._leading = nil}
+
+  public var trailing: Float {
+    get {_storage._trailing ?? 0}
+    set {_uniqueStorage()._trailing = newValue}
+  }
+  /// Returns true if `trailing` has been explicitly set.
+  public var hasTrailing: Bool {_storage._trailing != nil}
+  /// Clears the value of `trailing`. Subsequent reads from it will return its default value.
+  public mutating func clearTrailing() {_uniqueStorage()._trailing = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPButton: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var label: RPWidget {
+    get {_storage._label ?? RPWidget()}
+    set {_uniqueStorage()._label = newValue}
+  }
+  /// Returns true if `label` has been explicitly set.
+  public var hasLabel: Bool {_storage._label != nil}
+  /// Clears the value of `label`. Subsequent reads from it will return its default value.
+  public mutating func clearLabel() {_uniqueStorage()._label = nil}
+
+  public var action: RPAction {
+    get {_storage._action ?? RPAction()}
+    set {_uniqueStorage()._action = newValue}
+  }
+  /// Returns true if `action` has been explicitly set.
+  public var hasAction: Bool {_storage._action != nil}
+  /// Clears the value of `action`. Subsequent reads from it will return its default value.
+  public mutating func clearAction() {_uniqueStorage()._action = nil}
+
+  public var style: RPButtonStyle {
+    get {_storage._style}
+    set {_uniqueStorage()._style = newValue}
+  }
+
+  public var disabled: Bool {
+    get {_storage._disabled}
+    set {_uniqueStorage()._disabled = newValue}
+  }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPToggle: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var fieldID: String {
+    get {_storage._fieldID}
+    set {_uniqueStorage()._fieldID = newValue}
+  }
+
+  public var initialValue: Bool {
+    get {_storage._initialValue}
+    set {_uniqueStorage()._initialValue = newValue}
+  }
+
+  public var label: RPWidget {
+    get {_storage._label ?? RPWidget()}
+    set {_uniqueStorage()._label = newValue}
+  }
+  /// Returns true if `label` has been explicitly set.
+  public var hasLabel: Bool {_storage._label != nil}
+  /// Clears the value of `label`. Subsequent reads from it will return its default value.
+  public mutating func clearLabel() {_uniqueStorage()._label = nil}
+
+  public var onColor: RPColor {
+    get {_storage._onColor ?? RPColor()}
+    set {_uniqueStorage()._onColor = newValue}
+  }
+  /// Returns true if `onColor` has been explicitly set.
+  public var hasOnColor: Bool {_storage._onColor != nil}
+  /// Clears the value of `onColor`. Subsequent reads from it will return its default value.
+  public mutating func clearOnColor() {_uniqueStorage()._onColor = nil}
+
+  public var enabled: Bool {
+    get {_storage._enabled}
+    set {_uniqueStorage()._enabled = newValue}
+  }
+
+  public var onChange: RPAction {
+    get {_storage._onChange ?? RPAction()}
+    set {_uniqueStorage()._onChange = newValue}
+  }
+  /// Returns true if `onChange` has been explicitly set.
+  public var hasOnChange: Bool {_storage._onChange != nil}
+  /// Clears the value of `onChange`. Subsequent reads from it will return its default value.
+  public mutating func clearOnChange() {_uniqueStorage()._onChange = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPCard: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var elevation: Float {
+    get {_storage._elevation ?? 0}
+    set {_uniqueStorage()._elevation = newValue}
+  }
+  /// Returns true if `elevation` has been explicitly set.
+  public var hasElevation: Bool {_storage._elevation != nil}
+  /// Clears the value of `elevation`. Subsequent reads from it will return its default value.
+  public mutating func clearElevation() {_uniqueStorage()._elevation = nil}
+
+  public var cornerRadius: Float {
+    get {_storage._cornerRadius ?? 0}
+    set {_uniqueStorage()._cornerRadius = newValue}
+  }
+  /// Returns true if `cornerRadius` has been explicitly set.
+  public var hasCornerRadius: Bool {_storage._cornerRadius != nil}
+  /// Clears the value of `cornerRadius`. Subsequent reads from it will return its default value.
+  public mutating func clearCornerRadius() {_uniqueStorage()._cornerRadius = nil}
+
+  public var backgroundColor: RPColor {
+    get {_storage._backgroundColor ?? RPColor()}
+    set {_uniqueStorage()._backgroundColor = newValue}
+  }
+  /// Returns true if `backgroundColor` has been explicitly set.
+  public var hasBackgroundColor: Bool {_storage._backgroundColor != nil}
+  /// Clears the value of `backgroundColor`. Subsequent reads from it will return its default value.
+  public mutating func clearBackgroundColor() {_uniqueStorage()._backgroundColor = nil}
+
+  public var padding: RPEdgeInsets {
+    get {_storage._padding ?? RPEdgeInsets()}
+    set {_uniqueStorage()._padding = newValue}
+  }
+  /// Returns true if `padding` has been explicitly set.
+  public var hasPadding: Bool {_storage._padding != nil}
+  /// Clears the value of `padding`. Subsequent reads from it will return its default value.
+  public mutating func clearPadding() {_uniqueStorage()._padding = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPListTile: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var leading: RPWidget {
+    get {_storage._leading ?? RPWidget()}
+    set {_uniqueStorage()._leading = newValue}
+  }
+  /// Returns true if `leading` has been explicitly set.
+  public var hasLeading: Bool {_storage._leading != nil}
+  /// Clears the value of `leading`. Subsequent reads from it will return its default value.
+  public mutating func clearLeading() {_uniqueStorage()._leading = nil}
+
+  public var title: RPWidget {
+    get {_storage._title ?? RPWidget()}
+    set {_uniqueStorage()._title = newValue}
+  }
+  /// Returns true if `title` has been explicitly set.
+  public var hasTitle: Bool {_storage._title != nil}
+  /// Clears the value of `title`. Subsequent reads from it will return its default value.
+  public mutating func clearTitle() {_uniqueStorage()._title = nil}
+
+  public var subtitle: RPWidget {
+    get {_storage._subtitle ?? RPWidget()}
+    set {_uniqueStorage()._subtitle = newValue}
+  }
+  /// Returns true if `subtitle` has been explicitly set.
+  public var hasSubtitle: Bool {_storage._subtitle != nil}
+  /// Clears the value of `subtitle`. Subsequent reads from it will return its default value.
+  public mutating func clearSubtitle() {_uniqueStorage()._subtitle = nil}
+
+  public var trailing: RPWidget {
+    get {_storage._trailing ?? RPWidget()}
+    set {_uniqueStorage()._trailing = newValue}
+  }
+  /// Returns true if `trailing` has been explicitly set.
+  public var hasTrailing: Bool {_storage._trailing != nil}
+  /// Clears the value of `trailing`. Subsequent reads from it will return its default value.
+  public mutating func clearTrailing() {_uniqueStorage()._trailing = nil}
+
+  public var onTap: RPAction {
+    get {_storage._onTap ?? RPAction()}
+    set {_uniqueStorage()._onTap = newValue}
+  }
+  /// Returns true if `onTap` has been explicitly set.
+  public var hasOnTap: Bool {_storage._onTap != nil}
+  /// Clears the value of `onTap`. Subsequent reads from it will return its default value.
+  public mutating func clearOnTap() {_uniqueStorage()._onTap = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPAppBar: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var title: RPWidget {
+    get {_storage._title ?? RPWidget()}
+    set {_uniqueStorage()._title = newValue}
+  }
+  /// Returns true if `title` has been explicitly set.
+  public var hasTitle: Bool {_storage._title != nil}
+  /// Clears the value of `title`. Subsequent reads from it will return its default value.
+  public mutating func clearTitle() {_uniqueStorage()._title = nil}
+
+  public var leading: RPWidget {
+    get {_storage._leading ?? RPWidget()}
+    set {_uniqueStorage()._leading = newValue}
+  }
+  /// Returns true if `leading` has been explicitly set.
+  public var hasLeading: Bool {_storage._leading != nil}
+  /// Clears the value of `leading`. Subsequent reads from it will return its default value.
+  public mutating func clearLeading() {_uniqueStorage()._leading = nil}
+
+  public var actions: [RPWidget] {
+    get {_storage._actions}
+    set {_uniqueStorage()._actions = newValue}
+  }
+
+  public var backgroundColor: RPColor {
+    get {_storage._backgroundColor ?? RPColor()}
+    set {_uniqueStorage()._backgroundColor = newValue}
+  }
+  /// Returns true if `backgroundColor` has been explicitly set.
+  public var hasBackgroundColor: Bool {_storage._backgroundColor != nil}
+  /// Clears the value of `backgroundColor`. Subsequent reads from it will return its default value.
+  public mutating func clearBackgroundColor() {_uniqueStorage()._backgroundColor = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPBadge: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var value: String {
+    get {_storage._value ?? String()}
+    set {_uniqueStorage()._value = newValue}
+  }
+  /// Returns true if `value` has been explicitly set.
+  public var hasValue: Bool {_storage._value != nil}
+  /// Clears the value of `value`. Subsequent reads from it will return its default value.
+  public mutating func clearValue() {_uniqueStorage()._value = nil}
+
+  public var color: RPColor {
+    get {_storage._color ?? RPColor()}
+    set {_uniqueStorage()._color = newValue}
+  }
+  /// Returns true if `color` has been explicitly set.
+  public var hasColor: Bool {_storage._color != nil}
+  /// Clears the value of `color`. Subsequent reads from it will return its default value.
+  public mutating func clearColor() {_uniqueStorage()._color = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPScaffold: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var appBar: RPAppBar {
+    get {_storage._appBar ?? RPAppBar()}
+    set {_uniqueStorage()._appBar = newValue}
+  }
+  /// Returns true if `appBar` has been explicitly set.
+  public var hasAppBar: Bool {_storage._appBar != nil}
+  /// Clears the value of `appBar`. Subsequent reads from it will return its default value.
+  public mutating func clearAppBar() {_uniqueStorage()._appBar = nil}
+
+  public var body: RPWidget {
+    get {_storage._body ?? RPWidget()}
+    set {_uniqueStorage()._body = newValue}
+  }
+  /// Returns true if `body` has been explicitly set.
+  public var hasBody: Bool {_storage._body != nil}
+  /// Clears the value of `body`. Subsequent reads from it will return its default value.
+  public mutating func clearBody() {_uniqueStorage()._body = nil}
+
+  public var bottomNavBar: RPBottomNavBar {
+    get {_storage._bottomNavBar ?? RPBottomNavBar()}
+    set {_uniqueStorage()._bottomNavBar = newValue}
+  }
+  /// Returns true if `bottomNavBar` has been explicitly set.
+  public var hasBottomNavBar: Bool {_storage._bottomNavBar != nil}
+  /// Clears the value of `bottomNavBar`. Subsequent reads from it will return its default value.
+  public mutating func clearBottomNavBar() {_uniqueStorage()._bottomNavBar = nil}
+
+  public var backgroundColor: RPColor {
+    get {_storage._backgroundColor ?? RPColor()}
+    set {_uniqueStorage()._backgroundColor = newValue}
+  }
+  /// Returns true if `backgroundColor` has been explicitly set.
+  public var hasBackgroundColor: Bool {_storage._backgroundColor != nil}
+  /// Clears the value of `backgroundColor`. Subsequent reads from it will return its default value.
+  public mutating func clearBackgroundColor() {_uniqueStorage()._backgroundColor = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct RPGestureDetector: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var child: RPWidget {
+    get {_storage._child ?? RPWidget()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  public var hasChild: Bool {_storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  public mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  public var onTap: RPAction {
+    get {_storage._onTap ?? RPAction()}
+    set {_uniqueStorage()._onTap = newValue}
+  }
+  /// Returns true if `onTap` has been explicitly set.
+  public var hasOnTap: Bool {_storage._onTap != nil}
+  /// Clears the value of `onTap`. Subsequent reads from it will return its default value.
+  public mutating func clearOnTap() {_uniqueStorage()._onTap = nil}
+
+  public var onLongPress: RPAction {
+    get {_storage._onLongPress ?? RPAction()}
+    set {_uniqueStorage()._onLongPress = newValue}
+  }
+  /// Returns true if `onLongPress` has been explicitly set.
+  public var hasOnLongPress: Bool {_storage._onLongPress != nil}
+  /// Clears the value of `onLongPress`. Subsequent reads from it will return its default value.
+  public mutating func clearOnLongPress() {_uniqueStorage()._onLongPress = nil}
+
+  public var onDoubleTap: RPAction {
+    get {_storage._onDoubleTap ?? RPAction()}
+    set {_uniqueStorage()._onDoubleTap = newValue}
+  }
+  /// Returns true if `onDoubleTap` has been explicitly set.
+  public var hasOnDoubleTap: Bool {_storage._onDoubleTap != nil}
+  /// Clears the value of `onDoubleTap`. Subsequent reads from it will return its default value.
+  public mutating func clearOnDoubleTap() {_uniqueStorage()._onDoubleTap = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
@@ -216,7 +1461,7 @@ fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
 extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPWidget"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{2}2row\0\u{1}column\0\u{1}stack\0\u{1}container\0\u{2}/text\0\u{1}image\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{2}2row\0\u{1}column\0\u{1}stack\0\u{4}\u{5}scroll_view\0\u{3}lazy_list\0\u{3}lazy_grid\0\u{1}wrap\0\u{1}center\0\u{1}expanded\0\u{2}\u{7}padding\0\u{1}background\0\u{1}border\0\u{1}clip\0\u{1}opacity\0\u{1}visibility\0\u{1}shadow\0\u{3}size_box\0\u{3}safe_area\0\u{3}aspect_ratio\0\u{1}positioned\0\u{2}\u{15}text\0\u{1}image\0\u{1}icon\0\u{1}spacer\0\u{1}divider\0\u{3}progress_indicator\0\u{1}button\0\u{4}+text_field\0\u{1}toggle\0\u{1}slider\0\u{2}\u{1c}card\0\u{3}list_tile\0\u{3}app_bar\0\u{3}bottom_nav_bar\0\u{1}badge\0\u{1}scaffold\0\u{4}\u{f}gesture_detector\0")
 
   fileprivate class _StorageClass {
     var _id: String = String()
@@ -291,17 +1536,225 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
             _storage._content = .stack(v)
           }
         }()
-        case 54: try {
-          var v: RPContainer?
+        case 58: try {
+          var v: RPScrollView?
           var hadOneofValue = false
           if let current = _storage._content {
             hadOneofValue = true
-            if case .container(let m) = current {v = m}
+            if case .scrollView(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {
             if hadOneofValue {try decoder.handleConflictingOneOf()}
-            _storage._content = .container(v)
+            _storage._content = .scrollView(v)
+          }
+        }()
+        case 59: try {
+          var v: RPLazyList?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .lazyList(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .lazyList(v)
+          }
+        }()
+        case 60: try {
+          var v: RPLazyGrid?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .lazyGrid(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .lazyGrid(v)
+          }
+        }()
+        case 61: try {
+          var v: RPWrap?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .wrap(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .wrap(v)
+          }
+        }()
+        case 62: try {
+          var v: RPCenter?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .center(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .center(v)
+          }
+        }()
+        case 63: try {
+          var v: RPExpanded?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .expanded(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .expanded(v)
+          }
+        }()
+        case 70: try {
+          var v: RPPadding?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .padding(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .padding(v)
+          }
+        }()
+        case 71: try {
+          var v: RPBackground?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .background(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .background(v)
+          }
+        }()
+        case 72: try {
+          var v: RPBorder?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .border(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .border(v)
+          }
+        }()
+        case 73: try {
+          var v: RPClip?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .clip(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .clip(v)
+          }
+        }()
+        case 74: try {
+          var v: RPOpacity?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .opacity(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .opacity(v)
+          }
+        }()
+        case 75: try {
+          var v: RPVisibility?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .visibility(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .visibility(v)
+          }
+        }()
+        case 76: try {
+          var v: RPShadow?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .shadow(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .shadow(v)
+          }
+        }()
+        case 77: try {
+          var v: RPSizeBox?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .sizeBox(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .sizeBox(v)
+          }
+        }()
+        case 78: try {
+          var v: RPSafeArea?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .safeArea(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .safeArea(v)
+          }
+        }()
+        case 79: try {
+          var v: RPAspectRatio?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .aspectRatio(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .aspectRatio(v)
+          }
+        }()
+        case 80: try {
+          var v: RPPositioned?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .positioned(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .positioned(v)
           }
         }()
         case 101: try {
@@ -328,6 +1781,201 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
           if let v = v {
             if hadOneofValue {try decoder.handleConflictingOneOf()}
             _storage._content = .image(v)
+          }
+        }()
+        case 103: try {
+          var v: RPIcon?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .icon(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .icon(v)
+          }
+        }()
+        case 104: try {
+          var v: RPSpacer?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .spacer(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .spacer(v)
+          }
+        }()
+        case 105: try {
+          var v: RPDivider?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .divider(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .divider(v)
+          }
+        }()
+        case 106: try {
+          var v: RPProgressIndicator?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .progressIndicator(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .progressIndicator(v)
+          }
+        }()
+        case 107: try {
+          var v: RPButton?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .button(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .button(v)
+          }
+        }()
+        case 150: try {
+          var v: RPTextField?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .textField(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .textField(v)
+          }
+        }()
+        case 151: try {
+          var v: RPToggle?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .toggle(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .toggle(v)
+          }
+        }()
+        case 152: try {
+          var v: RPSlider?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .slider(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .slider(v)
+          }
+        }()
+        case 180: try {
+          var v: RPCard?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .card(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .card(v)
+          }
+        }()
+        case 181: try {
+          var v: RPListTile?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .listTile(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .listTile(v)
+          }
+        }()
+        case 182: try {
+          var v: RPAppBar?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .appBar(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .appBar(v)
+          }
+        }()
+        case 183: try {
+          var v: RPBottomNavBar?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .bottomNavBar(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .bottomNavBar(v)
+          }
+        }()
+        case 184: try {
+          var v: RPBadge?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .badge(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .badge(v)
+          }
+        }()
+        case 185: try {
+          var v: RPScaffold?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .scaffold(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .scaffold(v)
+          }
+        }()
+        case 200: try {
+          var v: RPGestureDetector?
+          var hadOneofValue = false
+          if let current = _storage._content {
+            hadOneofValue = true
+            if case .gestureDetector(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._content = .gestureDetector(v)
           }
         }()
         default: break
@@ -358,9 +2006,73 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
         guard case .stack(let v)? = _storage._content else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
       }()
-      case .container?: try {
-        guard case .container(let v)? = _storage._content else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 54)
+      case .scrollView?: try {
+        guard case .scrollView(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 58)
+      }()
+      case .lazyList?: try {
+        guard case .lazyList(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 59)
+      }()
+      case .lazyGrid?: try {
+        guard case .lazyGrid(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 60)
+      }()
+      case .wrap?: try {
+        guard case .wrap(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 61)
+      }()
+      case .center?: try {
+        guard case .center(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 62)
+      }()
+      case .expanded?: try {
+        guard case .expanded(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 63)
+      }()
+      case .padding?: try {
+        guard case .padding(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 70)
+      }()
+      case .background?: try {
+        guard case .background(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 71)
+      }()
+      case .border?: try {
+        guard case .border(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 72)
+      }()
+      case .clip?: try {
+        guard case .clip(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 73)
+      }()
+      case .opacity?: try {
+        guard case .opacity(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 74)
+      }()
+      case .visibility?: try {
+        guard case .visibility(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 75)
+      }()
+      case .shadow?: try {
+        guard case .shadow(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 76)
+      }()
+      case .sizeBox?: try {
+        guard case .sizeBox(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 77)
+      }()
+      case .safeArea?: try {
+        guard case .safeArea(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 78)
+      }()
+      case .aspectRatio?: try {
+        guard case .aspectRatio(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 79)
+      }()
+      case .positioned?: try {
+        guard case .positioned(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 80)
       }()
       case .text?: try {
         guard case .text(let v)? = _storage._content else { preconditionFailure() }
@@ -369,6 +2081,66 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
       case .image?: try {
         guard case .image(let v)? = _storage._content else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 102)
+      }()
+      case .icon?: try {
+        guard case .icon(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 103)
+      }()
+      case .spacer?: try {
+        guard case .spacer(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 104)
+      }()
+      case .divider?: try {
+        guard case .divider(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 105)
+      }()
+      case .progressIndicator?: try {
+        guard case .progressIndicator(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 106)
+      }()
+      case .button?: try {
+        guard case .button(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 107)
+      }()
+      case .textField?: try {
+        guard case .textField(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 150)
+      }()
+      case .toggle?: try {
+        guard case .toggle(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 151)
+      }()
+      case .slider?: try {
+        guard case .slider(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 152)
+      }()
+      case .card?: try {
+        guard case .card(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 180)
+      }()
+      case .listTile?: try {
+        guard case .listTile(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 181)
+      }()
+      case .appBar?: try {
+        guard case .appBar(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 182)
+      }()
+      case .bottomNavBar?: try {
+        guard case .bottomNavBar(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 183)
+      }()
+      case .badge?: try {
+        guard case .badge(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 184)
+      }()
+      case .scaffold?: try {
+        guard case .scaffold(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 185)
+      }()
+      case .gestureDetector?: try {
+        guard case .gestureDetector(let v)? = _storage._content else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }()
       case nil: break
       }
@@ -474,7 +2246,7 @@ extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
 
 extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPStack"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}alignment\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -483,6 +2255,7 @@ extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.children) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.alignment) }()
       default: break
       }
     }
@@ -492,23 +2265,450 @@ extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
     if !self.children.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.children, fieldNumber: 1)
     }
+    if self.alignment != .unspecified {
+      try visitor.visitSingularEnumField(value: self.alignment, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: RPStack, rhs: RPStack) -> Bool {
     if lhs.children != rhs.children {return false}
+    if lhs.alignment != rhs.alignment {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension RPContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPContainer"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{2}\u{a}border\0\u{1}padding\0\u{3}background_color\0\u{1}clip\0")
+extension RPScrollView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPScrollView"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}axis\0\u{3}shows_indicators\0")
 
   fileprivate class _StorageClass {
     var _child: RPWidget? = nil
-    var _value: RPContainer.OneOf_Value?
+    var _axis: RPAxis = .unspecified
+    var _showsIndicators: Bool = false
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _axis = source._axis
+      _showsIndicators = source._showsIndicators
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._axis) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._showsIndicators) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._axis != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._axis, fieldNumber: 2)
+      }
+      if _storage._showsIndicators != false {
+        try visitor.visitSingularBoolField(value: _storage._showsIndicators, fieldNumber: 3)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPScrollView, rhs: RPScrollView) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._axis != rhs_storage._axis {return false}
+        if _storage._showsIndicators != rhs_storage._showsIndicators {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPLazyList: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPLazyList"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}axis\0\u{1}spacing\0\u{3}shows_indicators\0\u{1}separator\0")
+
+  fileprivate class _StorageClass {
+    var _children: [RPWidget] = []
+    var _axis: RPAxis = .unspecified
+    var _spacing: Float = 0
+    var _showsIndicators: Bool = false
+    var _separator: RPWidget? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _children = source._children
+      _axis = source._axis
+      _spacing = source._spacing
+      _showsIndicators = source._showsIndicators
+      _separator = source._separator
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeRepeatedMessageField(value: &_storage._children) }()
+        case 2: try { try decoder.decodeSingularEnumField(value: &_storage._axis) }()
+        case 3: try { try decoder.decodeSingularFloatField(value: &_storage._spacing) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._showsIndicators) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._separator) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._children.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._children, fieldNumber: 1)
+      }
+      if _storage._axis != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._axis, fieldNumber: 2)
+      }
+      if _storage._spacing.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._spacing, fieldNumber: 3)
+      }
+      if _storage._showsIndicators != false {
+        try visitor.visitSingularBoolField(value: _storage._showsIndicators, fieldNumber: 4)
+      }
+      try { if let v = _storage._separator {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPLazyList, rhs: RPLazyList) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._children != rhs_storage._children {return false}
+        if _storage._axis != rhs_storage._axis {return false}
+        if _storage._spacing != rhs_storage._spacing {return false}
+        if _storage._showsIndicators != rhs_storage._showsIndicators {return false}
+        if _storage._separator != rhs_storage._separator {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPLazyGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPLazyGrid"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}layout\0\u{1}spacing\0\u{3}run_spacing\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.children) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._layout) }()
+      case 3: try { try decoder.decodeSingularFloatField(value: &self.spacing) }()
+      case 4: try { try decoder.decodeSingularFloatField(value: &self.runSpacing) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.children.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.children, fieldNumber: 1)
+    }
+    try { if let v = self._layout {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    if self.spacing.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.spacing, fieldNumber: 3)
+    }
+    if self.runSpacing.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.runSpacing, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPLazyGrid, rhs: RPLazyGrid) -> Bool {
+    if lhs.children != rhs.children {return false}
+    if lhs._layout != rhs._layout {return false}
+    if lhs.spacing != rhs.spacing {return false}
+    if lhs.runSpacing != rhs.runSpacing {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPWrap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPWrap"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}spacing\0\u{3}run_spacing\0\u{1}alignment\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.children) }()
+      case 2: try { try decoder.decodeSingularFloatField(value: &self.spacing) }()
+      case 3: try { try decoder.decodeSingularFloatField(value: &self.runSpacing) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.alignment) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.children.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.children, fieldNumber: 1)
+    }
+    if self.spacing.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.spacing, fieldNumber: 2)
+    }
+    if self.runSpacing.bitPattern != 0 {
+      try visitor.visitSingularFloatField(value: self.runSpacing, fieldNumber: 3)
+    }
+    if self.alignment != .unspecified {
+      try visitor.visitSingularEnumField(value: self.alignment, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPWrap, rhs: RPWrap) -> Bool {
+    if lhs.children != rhs.children {return false}
+    if lhs.spacing != rhs.spacing {return false}
+    if lhs.runSpacing != rhs.runSpacing {return false}
+    if lhs.alignment != rhs.alignment {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPCenter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPCenter"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPCenter, rhs: RPCenter) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPExpanded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPExpanded"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}flex\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _flex: Int32 = 0
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _flex = source._flex
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._flex) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._flex != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._flex, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPExpanded, rhs: RPExpanded) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._flex != rhs_storage._flex {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPPadding"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{2}\u{a}all\0\u{1}symmetric\0\u{1}explicit\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _value: RPPadding.OneOf_Value?
 
       // This property is used as the initial default value for new instances of the type.
       // The type itself is protecting the reference to its storage via CoW semantics.
@@ -541,55 +2741,37 @@ extension RPContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
         case 11: try {
-          var v: RPBorder?
-          var hadOneofValue = false
-          if let current = _storage._value {
-            hadOneofValue = true
-            if case .border(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
+          var v: Float?
+          try decoder.decodeSingularFloatField(value: &v)
           if let v = v {
-            if hadOneofValue {try decoder.handleConflictingOneOf()}
-            _storage._value = .border(v)
+            if _storage._value != nil {try decoder.handleConflictingOneOf()}
+            _storage._value = .all(v)
           }
         }()
         case 12: try {
-          var v: RPPadding?
+          var v: RPSymmetricPadding?
           var hadOneofValue = false
           if let current = _storage._value {
             hadOneofValue = true
-            if case .padding(let m) = current {v = m}
+            if case .symmetric(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {
             if hadOneofValue {try decoder.handleConflictingOneOf()}
-            _storage._value = .padding(v)
+            _storage._value = .symmetric(v)
           }
         }()
         case 13: try {
-          var v: RPColor?
+          var v: RPExplicitPadding?
           var hadOneofValue = false
           if let current = _storage._value {
             hadOneofValue = true
-            if case .backgroundColor(let m) = current {v = m}
+            if case .explicit(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {
             if hadOneofValue {try decoder.handleConflictingOneOf()}
-            _storage._value = .backgroundColor(v)
-          }
-        }()
-        case 14: try {
-          var v: RPClip?
-          var hadOneofValue = false
-          if let current = _storage._value {
-            hadOneofValue = true
-            if case .clip(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {
-            if hadOneofValue {try decoder.handleConflictingOneOf()}
-            _storage._value = .clip(v)
+            _storage._value = .explicit(v)
           }
         }()
         default: break
@@ -608,21 +2790,17 @@ extension RPContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       } }()
       switch _storage._value {
-      case .border?: try {
-        guard case .border(let v)? = _storage._value else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      case .all?: try {
+        guard case .all(let v)? = _storage._value else { preconditionFailure() }
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 11)
       }()
-      case .padding?: try {
-        guard case .padding(let v)? = _storage._value else { preconditionFailure() }
+      case .symmetric?: try {
+        guard case .symmetric(let v)? = _storage._value else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
       }()
-      case .backgroundColor?: try {
-        guard case .backgroundColor(let v)? = _storage._value else { preconditionFailure() }
+      case .explicit?: try {
+        guard case .explicit(let v)? = _storage._value else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-      }()
-      case .clip?: try {
-        guard case .clip(let v)? = _storage._value else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
       }()
       case nil: break
       }
@@ -630,13 +2808,1658 @@ extension RPContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: RPContainer, rhs: RPContainer) -> Bool {
+  public static func ==(lhs: RPPadding, rhs: RPPadding) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
         let rhs_storage = _args.1
         if _storage._child != rhs_storage._child {return false}
         if _storage._value != rhs_storage._value {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPBackground: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPBackground"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}color\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _color: RPColor? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _color = source._color
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._color) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._color {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPBackground, rhs: RPBackground) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._color != rhs_storage._color {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPBorder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPBorder"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}width\0\u{1}color\0\u{1}radius\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _width: Float = 0
+    var _color: RPColor? = nil
+    var _radius: Float? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _width = source._width
+      _color = source._color
+      _radius = source._radius
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularFloatField(value: &_storage._width) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._color) }()
+        case 4: try { try decoder.decodeSingularFloatField(value: &_storage._radius) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._width.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._width, fieldNumber: 2)
+      }
+      try { if let v = _storage._color {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._radius {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPBorder, rhs: RPBorder) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._width != rhs_storage._width {return false}
+        if _storage._color != rhs_storage._color {return false}
+        if _storage._radius != rhs_storage._radius {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPClip: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPClip"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}shape\0\u{1}type\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _shape: RPClipShape? = nil
+    var _type: RPClipType = .unspecified
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _shape = source._shape
+      _type = source._type
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._shape) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._type) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._shape {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      if _storage._type != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._type, fieldNumber: 3)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPClip, rhs: RPClip) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._shape != rhs_storage._shape {return false}
+        if _storage._type != rhs_storage._type {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPOpacity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPOpacity"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}value\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _value: Float = 0
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _value = source._value
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularFloatField(value: &_storage._value) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._value.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._value, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPOpacity, rhs: RPOpacity) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._value != rhs_storage._value {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPVisibility"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}visible\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _visible: Bool = false
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _visible = source._visible
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularBoolField(value: &_storage._visible) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._visible != false {
+        try visitor.visitSingularBoolField(value: _storage._visible, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPVisibility, rhs: RPVisibility) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._visible != rhs_storage._visible {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPShadow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPShadow"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}color\0\u{1}radius\0\u{3}offset_x\0\u{3}offset_y\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _color: RPColor? = nil
+    var _radius: Float = 0
+    var _offsetX: Float = 0
+    var _offsetY: Float = 0
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _color = source._color
+      _radius = source._radius
+      _offsetX = source._offsetX
+      _offsetY = source._offsetY
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._color) }()
+        case 3: try { try decoder.decodeSingularFloatField(value: &_storage._radius) }()
+        case 4: try { try decoder.decodeSingularFloatField(value: &_storage._offsetX) }()
+        case 5: try { try decoder.decodeSingularFloatField(value: &_storage._offsetY) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._color {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      if _storage._radius.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._radius, fieldNumber: 3)
+      }
+      if _storage._offsetX.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._offsetX, fieldNumber: 4)
+      }
+      if _storage._offsetY.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._offsetY, fieldNumber: 5)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPShadow, rhs: RPShadow) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._color != rhs_storage._color {return false}
+        if _storage._radius != rhs_storage._radius {return false}
+        if _storage._offsetX != rhs_storage._offsetX {return false}
+        if _storage._offsetY != rhs_storage._offsetY {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPSizeBox: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPSizeBox"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}width\0\u{1}height\0\u{3}min_width\0\u{3}min_height\0\u{3}max_width\0\u{3}max_height\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _width: Float? = nil
+    var _height: Float? = nil
+    var _minWidth: Float? = nil
+    var _minHeight: Float? = nil
+    var _maxWidth: Float? = nil
+    var _maxHeight: Float? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _width = source._width
+      _height = source._height
+      _minWidth = source._minWidth
+      _minHeight = source._minHeight
+      _maxWidth = source._maxWidth
+      _maxHeight = source._maxHeight
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularFloatField(value: &_storage._width) }()
+        case 3: try { try decoder.decodeSingularFloatField(value: &_storage._height) }()
+        case 4: try { try decoder.decodeSingularFloatField(value: &_storage._minWidth) }()
+        case 5: try { try decoder.decodeSingularFloatField(value: &_storage._minHeight) }()
+        case 6: try { try decoder.decodeSingularFloatField(value: &_storage._maxWidth) }()
+        case 7: try { try decoder.decodeSingularFloatField(value: &_storage._maxHeight) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._width {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._height {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._minWidth {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._minHeight {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 5)
+      } }()
+      try { if let v = _storage._maxWidth {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._maxHeight {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 7)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPSizeBox, rhs: RPSizeBox) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._width != rhs_storage._width {return false}
+        if _storage._height != rhs_storage._height {return false}
+        if _storage._minWidth != rhs_storage._minWidth {return false}
+        if _storage._minHeight != rhs_storage._minHeight {return false}
+        if _storage._maxWidth != rhs_storage._maxWidth {return false}
+        if _storage._maxHeight != rhs_storage._maxHeight {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPSafeArea: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPSafeArea"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}top\0\u{1}bottom\0\u{1}leading\0\u{1}trailing\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _top: Bool = false
+    var _bottom: Bool = false
+    var _leading: Bool = false
+    var _trailing: Bool = false
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _top = source._top
+      _bottom = source._bottom
+      _leading = source._leading
+      _trailing = source._trailing
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularBoolField(value: &_storage._top) }()
+        case 3: try { try decoder.decodeSingularBoolField(value: &_storage._bottom) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._leading) }()
+        case 5: try { try decoder.decodeSingularBoolField(value: &_storage._trailing) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._top != false {
+        try visitor.visitSingularBoolField(value: _storage._top, fieldNumber: 2)
+      }
+      if _storage._bottom != false {
+        try visitor.visitSingularBoolField(value: _storage._bottom, fieldNumber: 3)
+      }
+      if _storage._leading != false {
+        try visitor.visitSingularBoolField(value: _storage._leading, fieldNumber: 4)
+      }
+      if _storage._trailing != false {
+        try visitor.visitSingularBoolField(value: _storage._trailing, fieldNumber: 5)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPSafeArea, rhs: RPSafeArea) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._top != rhs_storage._top {return false}
+        if _storage._bottom != rhs_storage._bottom {return false}
+        if _storage._leading != rhs_storage._leading {return false}
+        if _storage._trailing != rhs_storage._trailing {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPAspectRatio: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPAspectRatio"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}ratio\0\u{3}content_mode\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _ratio: Float = 0
+    var _contentMode: RPContentMode = .unspecified
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _ratio = source._ratio
+      _contentMode = source._contentMode
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularFloatField(value: &_storage._ratio) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._contentMode) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      if _storage._ratio.bitPattern != 0 {
+        try visitor.visitSingularFloatField(value: _storage._ratio, fieldNumber: 2)
+      }
+      if _storage._contentMode != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._contentMode, fieldNumber: 3)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPAspectRatio, rhs: RPAspectRatio) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._ratio != rhs_storage._ratio {return false}
+        if _storage._contentMode != rhs_storage._contentMode {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPPositioned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPPositioned"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}top\0\u{1}bottom\0\u{1}leading\0\u{1}trailing\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _top: Float? = nil
+    var _bottom: Float? = nil
+    var _leading: Float? = nil
+    var _trailing: Float? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _top = source._top
+      _bottom = source._bottom
+      _leading = source._leading
+      _trailing = source._trailing
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularFloatField(value: &_storage._top) }()
+        case 3: try { try decoder.decodeSingularFloatField(value: &_storage._bottom) }()
+        case 4: try { try decoder.decodeSingularFloatField(value: &_storage._leading) }()
+        case 5: try { try decoder.decodeSingularFloatField(value: &_storage._trailing) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._top {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._bottom {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._leading {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._trailing {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 5)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPPositioned, rhs: RPPositioned) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._top != rhs_storage._top {return false}
+        if _storage._bottom != rhs_storage._bottom {return false}
+        if _storage._leading != rhs_storage._leading {return false}
+        if _storage._trailing != rhs_storage._trailing {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPButton: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPButton"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}label\0\u{1}action\0\u{1}style\0\u{1}disabled\0")
+
+  fileprivate class _StorageClass {
+    var _label: RPWidget? = nil
+    var _action: RPAction? = nil
+    var _style: RPButtonStyle = .unspecified
+    var _disabled: Bool = false
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _label = source._label
+      _action = source._action
+      _style = source._style
+      _disabled = source._disabled
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._label) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._action) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._style) }()
+        case 4: try { try decoder.decodeSingularBoolField(value: &_storage._disabled) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._label {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._action {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      if _storage._style != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._style, fieldNumber: 3)
+      }
+      if _storage._disabled != false {
+        try visitor.visitSingularBoolField(value: _storage._disabled, fieldNumber: 4)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPButton, rhs: RPButton) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._label != rhs_storage._label {return false}
+        if _storage._action != rhs_storage._action {return false}
+        if _storage._style != rhs_storage._style {return false}
+        if _storage._disabled != rhs_storage._disabled {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPToggle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPToggle"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_id\0\u{3}initial_value\0\u{1}label\0\u{3}on_color\0\u{1}enabled\0\u{3}on_change\0")
+
+  fileprivate class _StorageClass {
+    var _fieldID: String = String()
+    var _initialValue: Bool = false
+    var _label: RPWidget? = nil
+    var _onColor: RPColor? = nil
+    var _enabled: Bool = false
+    var _onChange: RPAction? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _fieldID = source._fieldID
+      _initialValue = source._initialValue
+      _label = source._label
+      _onColor = source._onColor
+      _enabled = source._enabled
+      _onChange = source._onChange
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._fieldID) }()
+        case 2: try { try decoder.decodeSingularBoolField(value: &_storage._initialValue) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._label) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._onColor) }()
+        case 5: try { try decoder.decodeSingularBoolField(value: &_storage._enabled) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._onChange) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._fieldID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._fieldID, fieldNumber: 1)
+      }
+      if _storage._initialValue != false {
+        try visitor.visitSingularBoolField(value: _storage._initialValue, fieldNumber: 2)
+      }
+      try { if let v = _storage._label {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._onColor {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      if _storage._enabled != false {
+        try visitor.visitSingularBoolField(value: _storage._enabled, fieldNumber: 5)
+      }
+      try { if let v = _storage._onChange {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPToggle, rhs: RPToggle) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._fieldID != rhs_storage._fieldID {return false}
+        if _storage._initialValue != rhs_storage._initialValue {return false}
+        if _storage._label != rhs_storage._label {return false}
+        if _storage._onColor != rhs_storage._onColor {return false}
+        if _storage._enabled != rhs_storage._enabled {return false}
+        if _storage._onChange != rhs_storage._onChange {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPCard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPCard"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}elevation\0\u{3}corner_radius\0\u{3}background_color\0\u{1}padding\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _elevation: Float? = nil
+    var _cornerRadius: Float? = nil
+    var _backgroundColor: RPColor? = nil
+    var _padding: RPEdgeInsets? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _elevation = source._elevation
+      _cornerRadius = source._cornerRadius
+      _backgroundColor = source._backgroundColor
+      _padding = source._padding
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularFloatField(value: &_storage._elevation) }()
+        case 3: try { try decoder.decodeSingularFloatField(value: &_storage._cornerRadius) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._backgroundColor) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._padding) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._elevation {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._cornerRadius {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._backgroundColor {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._padding {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPCard, rhs: RPCard) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._elevation != rhs_storage._elevation {return false}
+        if _storage._cornerRadius != rhs_storage._cornerRadius {return false}
+        if _storage._backgroundColor != rhs_storage._backgroundColor {return false}
+        if _storage._padding != rhs_storage._padding {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPListTile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPListTile"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}leading\0\u{1}title\0\u{1}subtitle\0\u{1}trailing\0\u{3}on_tap\0")
+
+  fileprivate class _StorageClass {
+    var _leading: RPWidget? = nil
+    var _title: RPWidget? = nil
+    var _subtitle: RPWidget? = nil
+    var _trailing: RPWidget? = nil
+    var _onTap: RPAction? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _leading = source._leading
+      _title = source._title
+      _subtitle = source._subtitle
+      _trailing = source._trailing
+      _onTap = source._onTap
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._leading) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._title) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._subtitle) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._trailing) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._onTap) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._leading {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._title {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._subtitle {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._trailing {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._onTap {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPListTile, rhs: RPListTile) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._leading != rhs_storage._leading {return false}
+        if _storage._title != rhs_storage._title {return false}
+        if _storage._subtitle != rhs_storage._subtitle {return false}
+        if _storage._trailing != rhs_storage._trailing {return false}
+        if _storage._onTap != rhs_storage._onTap {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPAppBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPAppBar"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}title\0\u{1}leading\0\u{1}actions\0\u{3}background_color\0")
+
+  fileprivate class _StorageClass {
+    var _title: RPWidget? = nil
+    var _leading: RPWidget? = nil
+    var _actions: [RPWidget] = []
+    var _backgroundColor: RPColor? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _title = source._title
+      _leading = source._leading
+      _actions = source._actions
+      _backgroundColor = source._backgroundColor
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._title) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._leading) }()
+        case 3: try { try decoder.decodeRepeatedMessageField(value: &_storage._actions) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._backgroundColor) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._title {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._leading {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      if !_storage._actions.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._actions, fieldNumber: 3)
+      }
+      try { if let v = _storage._backgroundColor {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPAppBar, rhs: RPAppBar) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._title != rhs_storage._title {return false}
+        if _storage._leading != rhs_storage._leading {return false}
+        if _storage._actions != rhs_storage._actions {return false}
+        if _storage._backgroundColor != rhs_storage._backgroundColor {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPBadge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPBadge"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}value\0\u{1}color\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _value: String? = nil
+    var _color: RPColor? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _value = source._value
+      _color = source._color
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._value) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._color) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._value {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._color {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPBadge, rhs: RPBadge) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._value != rhs_storage._value {return false}
+        if _storage._color != rhs_storage._color {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPScaffold: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPScaffold"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}app_bar\0\u{1}body\0\u{3}bottom_nav_bar\0\u{3}background_color\0")
+
+  fileprivate class _StorageClass {
+    var _appBar: RPAppBar? = nil
+    var _body: RPWidget? = nil
+    var _bottomNavBar: RPBottomNavBar? = nil
+    var _backgroundColor: RPColor? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _appBar = source._appBar
+      _body = source._body
+      _bottomNavBar = source._bottomNavBar
+      _backgroundColor = source._backgroundColor
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._appBar) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._body) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._bottomNavBar) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._backgroundColor) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._appBar {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._body {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._bottomNavBar {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._backgroundColor {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPScaffold, rhs: RPScaffold) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._appBar != rhs_storage._appBar {return false}
+        if _storage._body != rhs_storage._body {return false}
+        if _storage._bottomNavBar != rhs_storage._bottomNavBar {return false}
+        if _storage._backgroundColor != rhs_storage._backgroundColor {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPGestureDetector: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPGestureDetector"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{3}on_tap\0\u{3}on_long_press\0\u{3}on_double_tap\0")
+
+  fileprivate class _StorageClass {
+    var _child: RPWidget? = nil
+    var _onTap: RPAction? = nil
+    var _onLongPress: RPAction? = nil
+    var _onDoubleTap: RPAction? = nil
+
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _onTap = source._onTap
+      _onLongPress = source._onLongPress
+      _onDoubleTap = source._onDoubleTap
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._onTap) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._onLongPress) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._onDoubleTap) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._onTap {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._onLongPress {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._onDoubleTap {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPGestureDetector, rhs: RPGestureDetector) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._onTap != rhs_storage._onTap {return false}
+        if _storage._onLongPress != rhs_storage._onLongPress {return false}
+        if _storage._onDoubleTap != rhs_storage._onDoubleTap {return false}
         return true
       }
       if !storagesAreEqual {return false}
