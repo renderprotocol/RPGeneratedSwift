@@ -60,10 +60,10 @@ public struct RPWidget: @unchecked Sendable {
     set {_uniqueStorage()._content = .stack(newValue)}
   }
 
-  public var scrollView: RPScrollView {
+  public var scrollView: RPScrollable {
     get {
       if case .scrollView(let v)? = _storage._content {return v}
-      return RPScrollView()
+      return RPScrollable()
     }
     set {_uniqueStorage()._content = .scrollView(newValue)}
   }
@@ -344,7 +344,7 @@ public struct RPWidget: @unchecked Sendable {
     case row(RPRow)
     case column(RPColumn)
     case stack(RPStack)
-    case scrollView(RPScrollView)
+    case scrollView(RPScrollable)
     case lazyList(RPLazyList)
     case lazyGrid(RPLazyGrid)
     case wrap(RPWrap)
@@ -437,7 +437,7 @@ public struct RPStack: Sendable {
   public init() {}
 }
 
-public struct RPScrollView: @unchecked Sendable {
+public struct RPScrollable: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1537,7 +1537,7 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
           }
         }()
         case 58: try {
-          var v: RPScrollView?
+          var v: RPScrollable?
           var hadOneofValue = false
           if let current = _storage._content {
             hadOneofValue = true
@@ -2279,8 +2279,8 @@ extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension RPScrollView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".RPScrollView"
+extension RPScrollable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPScrollable"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}axis\0\u{3}shows_indicators\0")
 
   fileprivate class _StorageClass {
@@ -2346,7 +2346,7 @@ extension RPScrollView: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: RPScrollView, rhs: RPScrollView) -> Bool {
+  public static func ==(lhs: RPScrollable, rhs: RPScrollable) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
