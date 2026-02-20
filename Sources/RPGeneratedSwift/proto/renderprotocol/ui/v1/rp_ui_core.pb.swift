@@ -60,12 +60,12 @@ public struct RPWidget: @unchecked Sendable {
     set {_uniqueStorage()._content = .stack(newValue)}
   }
 
-  public var scrollView: RPScrollable {
+  public var scrollable: RPScrollable {
     get {
-      if case .scrollView(let v)? = _storage._content {return v}
+      if case .scrollable(let v)? = _storage._content {return v}
       return RPScrollable()
     }
-    set {_uniqueStorage()._content = .scrollView(newValue)}
+    set {_uniqueStorage()._content = .scrollable(newValue)}
   }
 
   public var lazyList: RPLazyList {
@@ -344,7 +344,7 @@ public struct RPWidget: @unchecked Sendable {
     case row(RPRow)
     case column(RPColumn)
     case stack(RPStack)
-    case scrollView(RPScrollable)
+    case scrollable(RPScrollable)
     case lazyList(RPLazyList)
     case lazyGrid(RPLazyGrid)
     case wrap(RPWrap)
@@ -1461,7 +1461,7 @@ fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
 
 extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPWidget"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{2}2row\0\u{1}column\0\u{1}stack\0\u{4}\u{5}scroll_view\0\u{3}lazy_list\0\u{3}lazy_grid\0\u{1}wrap\0\u{1}center\0\u{1}expanded\0\u{2}\u{7}padding\0\u{1}background\0\u{1}border\0\u{1}clip\0\u{1}opacity\0\u{1}visibility\0\u{1}shadow\0\u{3}size_box\0\u{3}safe_area\0\u{3}aspect_ratio\0\u{1}positioned\0\u{2}\u{15}text\0\u{1}image\0\u{1}icon\0\u{1}spacer\0\u{1}divider\0\u{3}progress_indicator\0\u{1}button\0\u{4}+text_field\0\u{1}toggle\0\u{1}slider\0\u{2}\u{1c}card\0\u{3}list_tile\0\u{3}app_bar\0\u{3}bottom_nav_bar\0\u{1}badge\0\u{1}scaffold\0\u{4}\u{f}gesture_detector\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{2}2row\0\u{1}column\0\u{1}stack\0\u{2}\u{5}scrollable\0\u{3}lazy_list\0\u{3}lazy_grid\0\u{1}wrap\0\u{1}center\0\u{1}expanded\0\u{2}\u{7}padding\0\u{1}background\0\u{1}border\0\u{1}clip\0\u{1}opacity\0\u{1}visibility\0\u{1}shadow\0\u{3}size_box\0\u{3}safe_area\0\u{3}aspect_ratio\0\u{1}positioned\0\u{2}\u{15}text\0\u{1}image\0\u{1}icon\0\u{1}spacer\0\u{1}divider\0\u{3}progress_indicator\0\u{1}button\0\u{4}+text_field\0\u{1}toggle\0\u{1}slider\0\u{2}\u{1c}card\0\u{3}list_tile\0\u{3}app_bar\0\u{3}bottom_nav_bar\0\u{1}badge\0\u{1}scaffold\0\u{4}\u{f}gesture_detector\0")
 
   fileprivate class _StorageClass {
     var _id: String = String()
@@ -1541,12 +1541,12 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
           var hadOneofValue = false
           if let current = _storage._content {
             hadOneofValue = true
-            if case .scrollView(let m) = current {v = m}
+            if case .scrollable(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {
             if hadOneofValue {try decoder.handleConflictingOneOf()}
-            _storage._content = .scrollView(v)
+            _storage._content = .scrollable(v)
           }
         }()
         case 59: try {
@@ -2006,8 +2006,8 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
         guard case .stack(let v)? = _storage._content else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
       }()
-      case .scrollView?: try {
-        guard case .scrollView(let v)? = _storage._content else { preconditionFailure() }
+      case .scrollable?: try {
+        guard case .scrollable(let v)? = _storage._content else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 58)
       }()
       case .lazyList?: try {
