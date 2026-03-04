@@ -32,9 +32,35 @@ public enum RPHandshakeService: Sendable {
                 method: "RPInitiate"
             )
         }
+        /// Namespace for "RPRefreshSession" metadata.
+        public enum RPRefreshSession: Sendable {
+            /// Request type for "RPRefreshSession".
+            public typealias Input = RPRefreshSessionRequest
+            /// Response type for "RPRefreshSession".
+            public typealias Output = RPRefreshSessionResponse
+            /// Descriptor for "RPRefreshSession".
+            public static let descriptor = GRPCCore.MethodDescriptor(
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPHandshakeService"),
+                method: "RPRefreshSession"
+            )
+        }
+        /// Namespace for "RPEndSession" metadata.
+        public enum RPEndSession: Sendable {
+            /// Request type for "RPEndSession".
+            public typealias Input = RPEndSessionRequest
+            /// Response type for "RPEndSession".
+            public typealias Output = RPEndSessionResponse
+            /// Descriptor for "RPEndSession".
+            public static let descriptor = GRPCCore.MethodDescriptor(
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPHandshakeService"),
+                method: "RPEndSession"
+            )
+        }
         /// Descriptors for all methods in the "proto.renderprotocol.api.v1.RPHandshakeService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
-            RPInitiate.descriptor
+            RPInitiate.descriptor,
+            RPRefreshSession.descriptor,
+            RPEndSession.descriptor
         ]
     }
 }
@@ -73,6 +99,34 @@ extension RPHandshakeService {
             request: GRPCCore.StreamingServerRequest<RPInitiateRequest>,
             context: GRPCCore.ServerContext
         ) async throws -> GRPCCore.StreamingServerResponse<RPInitiateResponse>
+
+        /// Handle the "RPRefreshSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request of `RPRefreshSessionRequest` messages.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A streaming response of `RPRefreshSessionResponse` messages.
+        func rpRefreshSession(
+            request: GRPCCore.StreamingServerRequest<RPRefreshSessionRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.StreamingServerResponse<RPRefreshSessionResponse>
+
+        /// Handle the "RPEndSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request of `RPEndSessionRequest` messages.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A streaming response of `RPEndSessionResponse` messages.
+        func rpEndSession(
+            request: GRPCCore.StreamingServerRequest<RPEndSessionRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.StreamingServerResponse<RPEndSessionResponse>
     }
 
     /// Service protocol for the "proto.renderprotocol.api.v1.RPHandshakeService" service.
@@ -96,6 +150,34 @@ extension RPHandshakeService {
             request: GRPCCore.ServerRequest<RPInitiateRequest>,
             context: GRPCCore.ServerContext
         ) async throws -> GRPCCore.ServerResponse<RPInitiateResponse>
+
+        /// Handle the "RPRefreshSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPRefreshSessionRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A response containing a single `RPRefreshSessionResponse` message.
+        func rpRefreshSession(
+            request: GRPCCore.ServerRequest<RPRefreshSessionRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.ServerResponse<RPRefreshSessionResponse>
+
+        /// Handle the "RPEndSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPEndSessionRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A response containing a single `RPEndSessionResponse` message.
+        func rpEndSession(
+            request: GRPCCore.ServerRequest<RPEndSessionRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.ServerResponse<RPEndSessionResponse>
     }
 
     /// Simple service protocol for the "proto.renderprotocol.api.v1.RPHandshakeService" service.
@@ -117,6 +199,34 @@ extension RPHandshakeService {
             request: RPInitiateRequest,
             context: GRPCCore.ServerContext
         ) async throws -> RPInitiateResponse
+
+        /// Handle the "RPRefreshSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A `RPRefreshSessionRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A `RPRefreshSessionResponse` to respond with.
+        func rpRefreshSession(
+            request: RPRefreshSessionRequest,
+            context: GRPCCore.ServerContext
+        ) async throws -> RPRefreshSessionResponse
+
+        /// Handle the "RPEndSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A `RPEndSessionRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A `RPEndSessionResponse` to respond with.
+        func rpEndSession(
+            request: RPEndSessionRequest,
+            context: GRPCCore.ServerContext
+        ) async throws -> RPEndSessionResponse
     }
 }
 
@@ -130,6 +240,28 @@ extension RPHandshakeService.StreamingServiceProtocol {
             serializer: GRPCProtobuf.ProtobufSerializer<RPInitiateResponse>(),
             handler: { request, context in
                 try await self.rpInitiate(
+                    request: request,
+                    context: context
+                )
+            }
+        )
+        router.registerHandler(
+            forMethod: RPHandshakeService.Method.RPRefreshSession.descriptor,
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPRefreshSessionRequest>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<RPRefreshSessionResponse>(),
+            handler: { request, context in
+                try await self.rpRefreshSession(
+                    request: request,
+                    context: context
+                )
+            }
+        )
+        router.registerHandler(
+            forMethod: RPHandshakeService.Method.RPEndSession.descriptor,
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPEndSessionRequest>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<RPEndSessionResponse>(),
+            handler: { request, context in
+                try await self.rpEndSession(
                     request: request,
                     context: context
                 )
@@ -151,6 +283,28 @@ extension RPHandshakeService.ServiceProtocol {
         )
         return GRPCCore.StreamingServerResponse(single: response)
     }
+
+    public func rpRefreshSession(
+        request: GRPCCore.StreamingServerRequest<RPRefreshSessionRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.StreamingServerResponse<RPRefreshSessionResponse> {
+        let response = try await self.rpRefreshSession(
+            request: GRPCCore.ServerRequest(stream: request),
+            context: context
+        )
+        return GRPCCore.StreamingServerResponse(single: response)
+    }
+
+    public func rpEndSession(
+        request: GRPCCore.StreamingServerRequest<RPEndSessionRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.StreamingServerResponse<RPEndSessionResponse> {
+        let response = try await self.rpEndSession(
+            request: GRPCCore.ServerRequest(stream: request),
+            context: context
+        )
+        return GRPCCore.StreamingServerResponse(single: response)
+    }
 }
 
 // Default implementation of methods from 'ServiceProtocol'.
@@ -162,6 +316,32 @@ extension RPHandshakeService.SimpleServiceProtocol {
     ) async throws -> GRPCCore.ServerResponse<RPInitiateResponse> {
         return GRPCCore.ServerResponse<RPInitiateResponse>(
             message: try await self.rpInitiate(
+                request: request.message,
+                context: context
+            ),
+            metadata: [:]
+        )
+    }
+
+    public func rpRefreshSession(
+        request: GRPCCore.ServerRequest<RPRefreshSessionRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.ServerResponse<RPRefreshSessionResponse> {
+        return GRPCCore.ServerResponse<RPRefreshSessionResponse>(
+            message: try await self.rpRefreshSession(
+                request: request.message,
+                context: context
+            ),
+            metadata: [:]
+        )
+    }
+
+    public func rpEndSession(
+        request: GRPCCore.ServerRequest<RPEndSessionRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.ServerResponse<RPEndSessionResponse> {
+        return GRPCCore.ServerResponse<RPEndSessionResponse>(
+            message: try await self.rpEndSession(
                 request: request.message,
                 context: context
             ),
@@ -196,6 +376,44 @@ extension RPHandshakeService {
             deserializer: some GRPCCore.MessageDeserializer<RPInitiateResponse>,
             options: GRPCCore.CallOptions,
             onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPInitiateResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RPRefreshSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPRefreshSessionRequest` message.
+        ///   - serializer: A serializer for `RPRefreshSessionRequest` messages.
+        ///   - deserializer: A deserializer for `RPRefreshSessionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rpRefreshSession<Result>(
+            request: GRPCCore.ClientRequest<RPRefreshSessionRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPRefreshSessionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPRefreshSessionResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPRefreshSessionResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RPEndSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPEndSessionRequest` message.
+        ///   - serializer: A serializer for `RPEndSessionRequest` messages.
+        ///   - deserializer: A deserializer for `RPEndSessionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rpEndSession<Result>(
+            request: GRPCCore.ClientRequest<RPEndSessionRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPEndSessionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPEndSessionResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPEndSessionResponse>) async throws -> Result
         ) async throws -> Result where Result: Sendable
     }
 
@@ -244,6 +462,66 @@ extension RPHandshakeService {
                 onResponse: handleResponse
             )
         }
+
+        /// Call the "RPRefreshSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPRefreshSessionRequest` message.
+        ///   - serializer: A serializer for `RPRefreshSessionRequest` messages.
+        ///   - deserializer: A deserializer for `RPRefreshSessionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func rpRefreshSession<Result>(
+            request: GRPCCore.ClientRequest<RPRefreshSessionRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPRefreshSessionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPRefreshSessionResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPRefreshSessionResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: RPHandshakeService.Method.RPRefreshSession.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RPEndSession" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPEndSessionRequest` message.
+        ///   - serializer: A serializer for `RPEndSessionRequest` messages.
+        ///   - deserializer: A deserializer for `RPEndSessionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func rpEndSession<Result>(
+            request: GRPCCore.ClientRequest<RPEndSessionRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPEndSessionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPEndSessionResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPEndSessionResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: RPHandshakeService.Method.RPEndSession.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
     }
 }
 
@@ -270,6 +548,56 @@ extension RPHandshakeService.ClientProtocol {
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<RPInitiateRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<RPInitiateResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPRefreshSession" method.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `RPRefreshSessionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpRefreshSession<Result>(
+        request: GRPCCore.ClientRequest<RPRefreshSessionRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPRefreshSessionResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.rpRefreshSession(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<RPRefreshSessionRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPRefreshSessionResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPEndSession" method.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `RPEndSessionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpEndSession<Result>(
+        request: GRPCCore.ClientRequest<RPEndSessionRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPEndSessionResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.rpEndSession(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<RPEndSessionRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPEndSessionResponse>(),
             options: options,
             onResponse: handleResponse
         )
@@ -302,6 +630,64 @@ extension RPHandshakeService.ClientProtocol {
             metadata: metadata
         )
         return try await self.rpInitiate(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPRefreshSession" method.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpRefreshSession<Result>(
+        _ message: RPRefreshSessionRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPRefreshSessionResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<RPRefreshSessionRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.rpRefreshSession(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPEndSession" method.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpEndSession<Result>(
+        _ message: RPEndSessionRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPEndSessionResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<RPEndSessionRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.rpEndSession(
             request: request,
             options: options,
             onResponse: handleResponse

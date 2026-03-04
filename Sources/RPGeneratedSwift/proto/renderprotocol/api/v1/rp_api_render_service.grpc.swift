@@ -32,9 +32,35 @@ public enum RPRenderService: Sendable {
                 method: "RPFetchRenderTree"
             )
         }
+        /// Namespace for "RPFetchComponent" metadata.
+        public enum RPFetchComponent: Sendable {
+            /// Request type for "RPFetchComponent".
+            public typealias Input = RPFetchComponentRequest
+            /// Response type for "RPFetchComponent".
+            public typealias Output = RPFetchComponentResponse
+            /// Descriptor for "RPFetchComponent".
+            public static let descriptor = GRPCCore.MethodDescriptor(
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPRenderService"),
+                method: "RPFetchComponent"
+            )
+        }
+        /// Namespace for "RPSubscribeRenderTree" metadata.
+        public enum RPSubscribeRenderTree: Sendable {
+            /// Request type for "RPSubscribeRenderTree".
+            public typealias Input = RPSubscribeRenderTreeRequest
+            /// Response type for "RPSubscribeRenderTree".
+            public typealias Output = RPSubscribeRenderTreeResponse
+            /// Descriptor for "RPSubscribeRenderTree".
+            public static let descriptor = GRPCCore.MethodDescriptor(
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPRenderService"),
+                method: "RPSubscribeRenderTree"
+            )
+        }
         /// Descriptors for all methods in the "proto.renderprotocol.api.v1.RPRenderService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
-            RPFetchRenderTree.descriptor
+            RPFetchRenderTree.descriptor,
+            RPFetchComponent.descriptor,
+            RPSubscribeRenderTree.descriptor
         ]
     }
 }
@@ -73,6 +99,34 @@ extension RPRenderService {
             request: GRPCCore.StreamingServerRequest<RPFetchRenderTreeRequest>,
             context: GRPCCore.ServerContext
         ) async throws -> GRPCCore.StreamingServerResponse<RPFetchRenderTreeResponse>
+
+        /// Handle the "RPFetchComponent" method.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request of `RPFetchComponentRequest` messages.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A streaming response of `RPFetchComponentResponse` messages.
+        func rpFetchComponent(
+            request: GRPCCore.StreamingServerRequest<RPFetchComponentRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.StreamingServerResponse<RPFetchComponentResponse>
+
+        /// Handle the "RPSubscribeRenderTree" method.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request of `RPSubscribeRenderTreeRequest` messages.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A streaming response of `RPSubscribeRenderTreeResponse` messages.
+        func rpSubscribeRenderTree(
+            request: GRPCCore.StreamingServerRequest<RPSubscribeRenderTreeRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.StreamingServerResponse<RPSubscribeRenderTreeResponse>
     }
 
     /// Service protocol for the "proto.renderprotocol.api.v1.RPRenderService" service.
@@ -96,6 +150,34 @@ extension RPRenderService {
             request: GRPCCore.ServerRequest<RPFetchRenderTreeRequest>,
             context: GRPCCore.ServerContext
         ) async throws -> GRPCCore.ServerResponse<RPFetchRenderTreeResponse>
+
+        /// Handle the "RPFetchComponent" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPFetchComponentRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A response containing a single `RPFetchComponentResponse` message.
+        func rpFetchComponent(
+            request: GRPCCore.ServerRequest<RPFetchComponentRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.ServerResponse<RPFetchComponentResponse>
+
+        /// Handle the "RPSubscribeRenderTree" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPSubscribeRenderTreeRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A streaming response of `RPSubscribeRenderTreeResponse` messages.
+        func rpSubscribeRenderTree(
+            request: GRPCCore.ServerRequest<RPSubscribeRenderTreeRequest>,
+            context: GRPCCore.ServerContext
+        ) async throws -> GRPCCore.StreamingServerResponse<RPSubscribeRenderTreeResponse>
     }
 
     /// Simple service protocol for the "proto.renderprotocol.api.v1.RPRenderService" service.
@@ -117,6 +199,35 @@ extension RPRenderService {
             request: RPFetchRenderTreeRequest,
             context: GRPCCore.ServerContext
         ) async throws -> RPFetchRenderTreeResponse
+
+        /// Handle the "RPFetchComponent" method.
+        ///
+        /// - Parameters:
+        ///   - request: A `RPFetchComponentRequest` message.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        /// - Returns: A `RPFetchComponentResponse` to respond with.
+        func rpFetchComponent(
+            request: RPFetchComponentRequest,
+            context: GRPCCore.ServerContext
+        ) async throws -> RPFetchComponentResponse
+
+        /// Handle the "RPSubscribeRenderTree" method.
+        ///
+        /// - Parameters:
+        ///   - request: A `RPSubscribeRenderTreeRequest` message.
+        ///   - response: A response stream of `RPSubscribeRenderTreeResponse` messages.
+        ///   - context: Context providing information about the RPC.
+        /// - Throws: Any error which occurred during the processing of the request. Thrown errors
+        ///     of type `RPCError` are mapped to appropriate statuses. All other errors are converted
+        ///     to an internal error.
+        func rpSubscribeRenderTree(
+            request: RPSubscribeRenderTreeRequest,
+            response: GRPCCore.RPCWriter<RPSubscribeRenderTreeResponse>,
+            context: GRPCCore.ServerContext
+        ) async throws
     }
 }
 
@@ -130,6 +241,28 @@ extension RPRenderService.StreamingServiceProtocol {
             serializer: GRPCProtobuf.ProtobufSerializer<RPFetchRenderTreeResponse>(),
             handler: { request, context in
                 try await self.rpFetchRenderTree(
+                    request: request,
+                    context: context
+                )
+            }
+        )
+        router.registerHandler(
+            forMethod: RPRenderService.Method.RPFetchComponent.descriptor,
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPFetchComponentRequest>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<RPFetchComponentResponse>(),
+            handler: { request, context in
+                try await self.rpFetchComponent(
+                    request: request,
+                    context: context
+                )
+            }
+        )
+        router.registerHandler(
+            forMethod: RPRenderService.Method.RPSubscribeRenderTree.descriptor,
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPSubscribeRenderTreeRequest>(),
+            serializer: GRPCProtobuf.ProtobufSerializer<RPSubscribeRenderTreeResponse>(),
+            handler: { request, context in
+                try await self.rpSubscribeRenderTree(
                     request: request,
                     context: context
                 )
@@ -151,6 +284,28 @@ extension RPRenderService.ServiceProtocol {
         )
         return GRPCCore.StreamingServerResponse(single: response)
     }
+
+    public func rpFetchComponent(
+        request: GRPCCore.StreamingServerRequest<RPFetchComponentRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.StreamingServerResponse<RPFetchComponentResponse> {
+        let response = try await self.rpFetchComponent(
+            request: GRPCCore.ServerRequest(stream: request),
+            context: context
+        )
+        return GRPCCore.StreamingServerResponse(single: response)
+    }
+
+    public func rpSubscribeRenderTree(
+        request: GRPCCore.StreamingServerRequest<RPSubscribeRenderTreeRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.StreamingServerResponse<RPSubscribeRenderTreeResponse> {
+        let response = try await self.rpSubscribeRenderTree(
+            request: GRPCCore.ServerRequest(stream: request),
+            context: context
+        )
+        return response
+    }
 }
 
 // Default implementation of methods from 'ServiceProtocol'.
@@ -166,6 +321,36 @@ extension RPRenderService.SimpleServiceProtocol {
                 context: context
             ),
             metadata: [:]
+        )
+    }
+
+    public func rpFetchComponent(
+        request: GRPCCore.ServerRequest<RPFetchComponentRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.ServerResponse<RPFetchComponentResponse> {
+        return GRPCCore.ServerResponse<RPFetchComponentResponse>(
+            message: try await self.rpFetchComponent(
+                request: request.message,
+                context: context
+            ),
+            metadata: [:]
+        )
+    }
+
+    public func rpSubscribeRenderTree(
+        request: GRPCCore.ServerRequest<RPSubscribeRenderTreeRequest>,
+        context: GRPCCore.ServerContext
+    ) async throws -> GRPCCore.StreamingServerResponse<RPSubscribeRenderTreeResponse> {
+        return GRPCCore.StreamingServerResponse<RPSubscribeRenderTreeResponse>(
+            metadata: [:],
+            producer: { writer in
+                try await self.rpSubscribeRenderTree(
+                    request: request.message,
+                    response: writer,
+                    context: context
+                )
+                return [:]
+            }
         )
     }
 }
@@ -196,6 +381,44 @@ extension RPRenderService {
             deserializer: some GRPCCore.MessageDeserializer<RPFetchRenderTreeResponse>,
             options: GRPCCore.CallOptions,
             onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPFetchRenderTreeResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RPFetchComponent" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPFetchComponentRequest` message.
+        ///   - serializer: A serializer for `RPFetchComponentRequest` messages.
+        ///   - deserializer: A deserializer for `RPFetchComponentResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rpFetchComponent<Result>(
+            request: GRPCCore.ClientRequest<RPFetchComponentRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPFetchComponentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPFetchComponentResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPFetchComponentResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RPSubscribeRenderTree" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPSubscribeRenderTreeRequest` message.
+        ///   - serializer: A serializer for `RPSubscribeRenderTreeRequest` messages.
+        ///   - deserializer: A deserializer for `RPSubscribeRenderTreeResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rpSubscribeRenderTree<Result>(
+            request: GRPCCore.ClientRequest<RPSubscribeRenderTreeRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPSubscribeRenderTreeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPSubscribeRenderTreeResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<RPSubscribeRenderTreeResponse>) async throws -> Result
         ) async throws -> Result where Result: Sendable
     }
 
@@ -244,6 +467,64 @@ extension RPRenderService {
                 onResponse: handleResponse
             )
         }
+
+        /// Call the "RPFetchComponent" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPFetchComponentRequest` message.
+        ///   - serializer: A serializer for `RPFetchComponentRequest` messages.
+        ///   - deserializer: A deserializer for `RPFetchComponentResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func rpFetchComponent<Result>(
+            request: GRPCCore.ClientRequest<RPFetchComponentRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPFetchComponentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPFetchComponentResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPFetchComponentResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: RPRenderService.Method.RPFetchComponent.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RPSubscribeRenderTree" method.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `RPSubscribeRenderTreeRequest` message.
+        ///   - serializer: A serializer for `RPSubscribeRenderTreeRequest` messages.
+        ///   - deserializer: A deserializer for `RPSubscribeRenderTreeResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func rpSubscribeRenderTree<Result>(
+            request: GRPCCore.ClientRequest<RPSubscribeRenderTreeRequest>,
+            serializer: some GRPCCore.MessageSerializer<RPSubscribeRenderTreeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<RPSubscribeRenderTreeResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<RPSubscribeRenderTreeResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: RPRenderService.Method.RPSubscribeRenderTree.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
     }
 }
 
@@ -270,6 +551,54 @@ extension RPRenderService.ClientProtocol {
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<RPFetchRenderTreeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<RPFetchRenderTreeResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPFetchComponent" method.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `RPFetchComponentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpFetchComponent<Result>(
+        request: GRPCCore.ClientRequest<RPFetchComponentRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPFetchComponentResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.rpFetchComponent(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<RPFetchComponentRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPFetchComponentResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPSubscribeRenderTree" method.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `RPSubscribeRenderTreeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpSubscribeRenderTree<Result>(
+        request: GRPCCore.ClientRequest<RPSubscribeRenderTreeRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<RPSubscribeRenderTreeResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
+        try await self.rpSubscribeRenderTree(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<RPSubscribeRenderTreeRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<RPSubscribeRenderTreeResponse>(),
             options: options,
             onResponse: handleResponse
         )
@@ -302,6 +631,62 @@ extension RPRenderService.ClientProtocol {
             metadata: metadata
         )
         return try await self.rpFetchRenderTree(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPFetchComponent" method.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpFetchComponent<Result>(
+        _ message: RPFetchComponentRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<RPFetchComponentResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<RPFetchComponentRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.rpFetchComponent(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "RPSubscribeRenderTree" method.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rpSubscribeRenderTree<Result>(
+        _ message: RPSubscribeRenderTreeRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<RPSubscribeRenderTreeResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<RPSubscribeRenderTreeRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.rpSubscribeRenderTree(
             request: request,
             options: options,
             onResponse: handleResponse

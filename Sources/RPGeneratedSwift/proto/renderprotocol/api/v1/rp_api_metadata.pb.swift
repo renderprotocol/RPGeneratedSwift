@@ -31,6 +31,10 @@ public struct RPAppMetadata: Sendable {
 
   public var platform: RPPlatform = .unspecified
 
+  public var locale: String = String()
+
+  public var sdkVersion: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -47,9 +51,40 @@ public struct RPDeviceMetadata: Sendable {
 
   public var platform: RPPlatform = .unspecified
 
+  public var screenWidth: Float {
+    get {_screenWidth ?? 0}
+    set {_screenWidth = newValue}
+  }
+  /// Returns true if `screenWidth` has been explicitly set.
+  public var hasScreenWidth: Bool {self._screenWidth != nil}
+  /// Clears the value of `screenWidth`. Subsequent reads from it will return its default value.
+  public mutating func clearScreenWidth() {self._screenWidth = nil}
+
+  public var screenHeight: Float {
+    get {_screenHeight ?? 0}
+    set {_screenHeight = newValue}
+  }
+  /// Returns true if `screenHeight` has been explicitly set.
+  public var hasScreenHeight: Bool {self._screenHeight != nil}
+  /// Clears the value of `screenHeight`. Subsequent reads from it will return its default value.
+  public mutating func clearScreenHeight() {self._screenHeight = nil}
+
+  public var screenDensity: Float {
+    get {_screenDensity ?? 0}
+    set {_screenDensity = newValue}
+  }
+  /// Returns true if `screenDensity` has been explicitly set.
+  public var hasScreenDensity: Bool {self._screenDensity != nil}
+  /// Clears the value of `screenDensity`. Subsequent reads from it will return its default value.
+  public mutating func clearScreenDensity() {self._screenDensity = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _screenWidth: Float? = nil
+  fileprivate var _screenHeight: Float? = nil
+  fileprivate var _screenDensity: Float? = nil
 }
 
 public struct RPApiMetadata: Sendable {
@@ -83,13 +118,46 @@ public struct RPApiMetadata: Sendable {
   fileprivate var _deviceMetadata: RPDeviceMetadata? = nil
 }
 
+public struct RPSessionContext: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var sessionToken: String = String()
+
+  public var traceID: String {
+    get {_traceID ?? String()}
+    set {_traceID = newValue}
+  }
+  /// Returns true if `traceID` has been explicitly set.
+  public var hasTraceID: Bool {self._traceID != nil}
+  /// Clears the value of `traceID`. Subsequent reads from it will return its default value.
+  public mutating func clearTraceID() {self._traceID = nil}
+
+  public var localeOverride: String {
+    get {_localeOverride ?? String()}
+    set {_localeOverride = newValue}
+  }
+  /// Returns true if `localeOverride` has been explicitly set.
+  public var hasLocaleOverride: Bool {self._localeOverride != nil}
+  /// Clears the value of `localeOverride`. Subsequent reads from it will return its default value.
+  public mutating func clearLocaleOverride() {self._localeOverride = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _traceID: String? = nil
+  fileprivate var _localeOverride: String? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto.renderprotocol.api.v1"
 
 extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPAppMetadata"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bundle_id\0\u{3}app_version\0\u{1}platform\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bundle_id\0\u{3}app_version\0\u{1}platform\0\u{1}locale\0\u{3}sdk_version\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -100,6 +168,8 @@ extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
       case 1: try { try decoder.decodeSingularStringField(value: &self.bundleID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.appVersion) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.platform) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.locale) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.sdkVersion) }()
       default: break
       }
     }
@@ -115,6 +185,12 @@ extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if self.platform != .unspecified {
       try visitor.visitSingularEnumField(value: self.platform, fieldNumber: 3)
     }
+    if !self.locale.isEmpty {
+      try visitor.visitSingularStringField(value: self.locale, fieldNumber: 4)
+    }
+    if !self.sdkVersion.isEmpty {
+      try visitor.visitSingularStringField(value: self.sdkVersion, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -122,6 +198,8 @@ extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     if lhs.bundleID != rhs.bundleID {return false}
     if lhs.appVersion != rhs.appVersion {return false}
     if lhs.platform != rhs.platform {return false}
+    if lhs.locale != rhs.locale {return false}
+    if lhs.sdkVersion != rhs.sdkVersion {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -129,7 +207,7 @@ extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 
 extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPDeviceMetadata"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}device_model\0\u{3}os_version\0\u{1}platform\0")
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}device_model\0\u{3}os_version\0\u{1}platform\0\u{3}screen_width\0\u{3}screen_height\0\u{3}screen_density\0")
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -140,12 +218,19 @@ extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
       case 1: try { try decoder.decodeSingularStringField(value: &self.deviceModel) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.osVersion) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.platform) }()
+      case 4: try { try decoder.decodeSingularFloatField(value: &self._screenWidth) }()
+      case 5: try { try decoder.decodeSingularFloatField(value: &self._screenHeight) }()
+      case 6: try { try decoder.decodeSingularFloatField(value: &self._screenDensity) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.deviceModel.isEmpty {
       try visitor.visitSingularStringField(value: self.deviceModel, fieldNumber: 1)
     }
@@ -155,6 +240,15 @@ extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if self.platform != .unspecified {
       try visitor.visitSingularEnumField(value: self.platform, fieldNumber: 3)
     }
+    try { if let v = self._screenWidth {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._screenHeight {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._screenDensity {
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 6)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -162,6 +256,9 @@ extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if lhs.deviceModel != rhs.deviceModel {return false}
     if lhs.osVersion != rhs.osVersion {return false}
     if lhs.platform != rhs.platform {return false}
+    if lhs._screenWidth != rhs._screenWidth {return false}
+    if lhs._screenHeight != rhs._screenHeight {return false}
+    if lhs._screenDensity != rhs._screenDensity {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -201,6 +298,50 @@ extension RPApiMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   public static func ==(lhs: RPApiMetadata, rhs: RPApiMetadata) -> Bool {
     if lhs._appMetadata != rhs._appMetadata {return false}
     if lhs._deviceMetadata != rhs._deviceMetadata {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension RPSessionContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".RPSessionContext"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}session_token\0\u{3}trace_id\0\u{3}locale_override\0")
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.sessionToken) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._traceID) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self._localeOverride) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.sessionToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.sessionToken, fieldNumber: 1)
+    }
+    try { if let v = self._traceID {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._localeOverride {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: RPSessionContext, rhs: RPSessionContext) -> Bool {
+    if lhs.sessionToken != rhs.sessionToken {return false}
+    if lhs._traceID != rhs._traceID {return false}
+    if lhs._localeOverride != rhs._localeOverride {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
