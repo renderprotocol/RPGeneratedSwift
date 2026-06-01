@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPRenderTreeUpdateType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPRenderTreeUpdateType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case fullReplace // = 1
@@ -58,7 +58,7 @@ public enum RPRenderTreeUpdateType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPFetchRenderTreeRequest: Sendable {
+public nonisolated struct RPFetchRenderTreeRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -93,7 +93,7 @@ public struct RPFetchRenderTreeRequest: Sendable {
   fileprivate var _cachedVersion: String? = nil
 }
 
-public struct RPFetchRenderTreeResponse: Sendable {
+public nonisolated struct RPFetchRenderTreeResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -130,7 +130,7 @@ public struct RPFetchRenderTreeResponse: Sendable {
   fileprivate var _tree: RPWidget? = nil
 }
 
-public struct RPFetchComponentRequest: Sendable {
+public nonisolated struct RPFetchComponentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -157,7 +157,7 @@ public struct RPFetchComponentRequest: Sendable {
   fileprivate var _context: RPSessionContext? = nil
 }
 
-public struct RPFetchComponentResponse: Sendable {
+public nonisolated struct RPFetchComponentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -190,7 +190,7 @@ public struct RPFetchComponentResponse: Sendable {
   fileprivate var _component: RPWidget? = nil
 }
 
-public struct RPSubscribeRenderTreeRequest: Sendable {
+public nonisolated struct RPSubscribeRenderTreeRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -215,7 +215,7 @@ public struct RPSubscribeRenderTreeRequest: Sendable {
   fileprivate var _context: RPSessionContext? = nil
 }
 
-public struct RPSubscribeRenderTreeResponse: Sendable {
+public nonisolated struct RPSubscribeRenderTreeResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -254,13 +254,13 @@ public struct RPSubscribeRenderTreeResponse: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.api.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.api.v1"
 
-extension RPRenderTreeUpdateType: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPRenderTreeUpdateType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_RENDER_TREE_UPDATE_TYPE_UNSPECIFIED\0\u{1}RP_RENDER_TREE_UPDATE_TYPE_FULL_REPLACE\0\u{1}RP_RENDER_TREE_UPDATE_TYPE_PARTIAL\0")
 }
 
-extension RPFetchRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFetchRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPFetchRenderTreeRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}context\0\u{1}id\0\u{1}parameters\0\u{3}cached_version\0")
 
@@ -309,7 +309,7 @@ extension RPFetchRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension RPFetchRenderTreeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFetchRenderTreeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPFetchRenderTreeResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0\u{1}id\0\u{1}tree\0\u{1}version\0\u{3}not_modified\0")
 
@@ -363,7 +363,7 @@ extension RPFetchRenderTreeResponse: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension RPFetchComponentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFetchComponentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPFetchComponentRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}context\0\u{3}tree_id\0\u{3}component_id\0\u{1}parameters\0")
 
@@ -412,7 +412,7 @@ extension RPFetchComponentRequest: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 }
 
-extension RPFetchComponentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFetchComponentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPFetchComponentResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0\u{1}component\0\u{1}version\0")
 
@@ -456,7 +456,7 @@ extension RPFetchComponentResponse: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension RPSubscribeRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSubscribeRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSubscribeRenderTreeRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}context\0\u{1}id\0\u{1}parameters\0")
 
@@ -500,7 +500,7 @@ extension RPSubscribeRenderTreeRequest: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension RPSubscribeRenderTreeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSubscribeRenderTreeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSubscribeRenderTreeResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0\u{1}id\0\u{3}update_type\0\u{1}tree\0\u{1}version\0")
 

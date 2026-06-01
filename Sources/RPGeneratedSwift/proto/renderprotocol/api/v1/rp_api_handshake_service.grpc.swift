@@ -29,7 +29,8 @@ public enum RPHandshakeService: Sendable {
             /// Descriptor for "RPInitiate".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPHandshakeService"),
-                method: "RPInitiate"
+                method: "RPInitiate",
+                type: .unary
             )
         }
         /// Namespace for "RPRefreshSession" metadata.
@@ -41,7 +42,8 @@ public enum RPHandshakeService: Sendable {
             /// Descriptor for "RPRefreshSession".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPHandshakeService"),
-                method: "RPRefreshSession"
+                method: "RPRefreshSession",
+                type: .unary
             )
         }
         /// Namespace for "RPEndSession" metadata.
@@ -53,7 +55,8 @@ public enum RPHandshakeService: Sendable {
             /// Descriptor for "RPEndSession".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPHandshakeService"),
-                method: "RPEndSession"
+                method: "RPEndSession",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "proto.renderprotocol.api.v1.RPHandshakeService" service.

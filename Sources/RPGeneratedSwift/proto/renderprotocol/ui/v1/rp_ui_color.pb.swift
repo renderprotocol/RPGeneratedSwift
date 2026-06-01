@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct RPColor: Sendable {
+public nonisolated struct RPColor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,7 +47,7 @@ public struct RPColor: Sendable {
   fileprivate var _opacity: Float? = nil
 }
 
-public struct RPGradientStop: Sendable {
+public nonisolated struct RPGradientStop: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -70,7 +70,7 @@ public struct RPGradientStop: Sendable {
   fileprivate var _color: RPColor? = nil
 }
 
-public struct RPLinearGradient: Sendable {
+public nonisolated struct RPLinearGradient: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -86,7 +86,7 @@ public struct RPLinearGradient: Sendable {
   public init() {}
 }
 
-public struct RPRadialGradient: Sendable {
+public nonisolated struct RPRadialGradient: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -100,7 +100,7 @@ public struct RPRadialGradient: Sendable {
   public init() {}
 }
 
-public struct RPColorValue: Sendable {
+public nonisolated struct RPColorValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,7 +133,7 @@ public struct RPColorValue: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Value: Equatable, Sendable {
+  public nonisolated enum OneOf_Value: Equatable, Sendable {
     case solid(RPColor)
     case linearGradient(RPLinearGradient)
     case radialGradient(RPRadialGradient)
@@ -145,9 +145,9 @@ public struct RPColorValue: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPColor"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}red\0\u{1}green\0\u{1}blue\0\u{1}opacity\0")
 
@@ -196,7 +196,7 @@ extension RPColor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension RPGradientStop: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPGradientStop: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPGradientStop"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}color\0\u{1}position\0")
 
@@ -235,7 +235,7 @@ extension RPGradientStop: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   }
 }
 
-extension RPLinearGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPLinearGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPLinearGradient"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stops\0\u{3}start_point\0\u{3}end_point\0")
 
@@ -275,7 +275,7 @@ extension RPLinearGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension RPRadialGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPRadialGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPRadialGradient"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}stops\0\u{1}radius\0")
 
@@ -310,7 +310,7 @@ extension RPRadialGradient: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension RPColorValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPColorValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPColorValue"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}solid\0\u{3}linear_gradient\0\u{3}radial_gradient\0")
 

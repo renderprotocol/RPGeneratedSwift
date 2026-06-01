@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct RPShapeRectangle: Sendable {
+public nonisolated struct RPShapeRectangle: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -30,7 +30,7 @@ public struct RPShapeRectangle: Sendable {
   public init() {}
 }
 
-public struct RPShapeCircle: Sendable {
+public nonisolated struct RPShapeCircle: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,7 +40,7 @@ public struct RPShapeCircle: Sendable {
   public init() {}
 }
 
-public struct RPShapeEllipse: Sendable {
+public nonisolated struct RPShapeEllipse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -50,7 +50,7 @@ public struct RPShapeEllipse: Sendable {
   public init() {}
 }
 
-public struct RPShapeCapsule: Sendable {
+public nonisolated struct RPShapeCapsule: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -60,7 +60,7 @@ public struct RPShapeCapsule: Sendable {
   public init() {}
 }
 
-public struct RPShapeRoundedRectangle: Sendable {
+public nonisolated struct RPShapeRoundedRectangle: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -74,9 +74,9 @@ public struct RPShapeRoundedRectangle: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPShapeRectangle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPShapeRectangle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPShapeRectangle"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -95,7 +95,7 @@ extension RPShapeRectangle: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension RPShapeCircle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPShapeCircle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPShapeCircle"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -114,7 +114,7 @@ extension RPShapeCircle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension RPShapeEllipse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPShapeEllipse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPShapeEllipse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -133,7 +133,7 @@ extension RPShapeEllipse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   }
 }
 
-extension RPShapeCapsule: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPShapeCapsule: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPShapeCapsule"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -152,7 +152,7 @@ extension RPShapeCapsule: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   }
 }
 
-extension RPShapeRoundedRectangle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPShapeRoundedRectangle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPShapeRoundedRectangle"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}radius\0")
 

@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPContentMode: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPContentMode: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case fit // = 1
@@ -66,7 +66,7 @@ public enum RPContentMode: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPImage: Sendable {
+public nonisolated struct RPImage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,13 +133,13 @@ public struct RPImage: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPContentMode: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPContentMode: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_CONTENT_MODE_UNSPECIFIED\0\u{1}RP_CONTENT_MODE_FIT\0\u{1}RP_CONTENT_MODE_FILL\0\u{1}RP_CONTENT_MODE_STRETCH\0\u{1}RP_CONTENT_MODE_NONE\0")
 }
 
-extension RPImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPImage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPImage"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}url\0\u{1}width\0\u{1}height\0\u{3}content_mode\0\u{3}placeholder_url\0\u{3}tint_color\0\u{3}alt_text\0")
 

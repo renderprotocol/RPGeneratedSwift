@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPKeyboardType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPKeyboardType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case `default` // = 1
@@ -74,7 +74,7 @@ public enum RPKeyboardType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPTextField: @unchecked Sendable {
+public nonisolated struct RPTextField: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -153,13 +153,13 @@ public struct RPTextField: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPKeyboardType: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPKeyboardType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_KEYBOARD_TYPE_UNSPECIFIED\0\u{1}RP_KEYBOARD_TYPE_DEFAULT\0\u{1}RP_KEYBOARD_TYPE_EMAIL\0\u{1}RP_KEYBOARD_TYPE_NUMBER\0\u{1}RP_KEYBOARD_TYPE_PHONE\0\u{1}RP_KEYBOARD_TYPE_URL\0\u{1}RP_KEYBOARD_TYPE_DECIMAL\0")
 }
 
-extension RPTextField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPTextField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPTextField"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_id\0\u{1}placeholder\0\u{3}initial_value\0\u{3}keyboard_type\0\u{3}secure_entry\0\u{3}max_length\0\u{3}text_style\0\u{1}enabled\0\u{3}on_submit\0")
 

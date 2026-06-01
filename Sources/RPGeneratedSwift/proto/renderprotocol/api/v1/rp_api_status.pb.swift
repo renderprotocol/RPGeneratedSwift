@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPStatusCode: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPStatusCode: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
 
@@ -96,7 +96,7 @@ public enum RPStatusCode: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPStatus: Sendable {
+public nonisolated struct RPStatus: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -114,13 +114,13 @@ public struct RPStatus: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.api.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.api.v1"
 
-extension RPStatusCode: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPStatusCode: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_STATUS_CODE_UNSPECIFIED\0\u{1}RP_STATUS_CODE_OK\0\u{2}\u{9}RP_STATUS_CODE_INVALID_REQUEST\0\u{1}RP_STATUS_CODE_UNAUTHORIZED\0\u{1}RP_STATUS_CODE_SESSION_EXPIRED\0\u{1}RP_STATUS_CODE_NOT_FOUND\0\u{1}RP_STATUS_CODE_RATE_LIMITED\0\u{1}RP_STATUS_CODE_VERSION_MISMATCH\0\u{2}\u{5}RP_STATUS_CODE_INTERNAL_ERROR\0\u{1}RP_STATUS_CODE_UNAVAILABLE\0\u{1}RP_STATUS_CODE_TIMEOUT\0")
 }
 
-extension RPStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPStatus: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPStatus"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}code\0\u{1}message\0\u{1}details\0")
 

@@ -29,7 +29,8 @@ public enum RPRenderService: Sendable {
             /// Descriptor for "RPFetchRenderTree".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPRenderService"),
-                method: "RPFetchRenderTree"
+                method: "RPFetchRenderTree",
+                type: .unary
             )
         }
         /// Namespace for "RPFetchComponent" metadata.
@@ -41,7 +42,8 @@ public enum RPRenderService: Sendable {
             /// Descriptor for "RPFetchComponent".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPRenderService"),
-                method: "RPFetchComponent"
+                method: "RPFetchComponent",
+                type: .unary
             )
         }
         /// Namespace for "RPSubscribeRenderTree" metadata.
@@ -53,7 +55,8 @@ public enum RPRenderService: Sendable {
             /// Descriptor for "RPSubscribeRenderTree".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPRenderService"),
-                method: "RPSubscribeRenderTree"
+                method: "RPSubscribeRenderTree",
+                type: .serverStreaming
             )
         }
         /// Descriptors for all methods in the "proto.renderprotocol.api.v1.RPRenderService" service.

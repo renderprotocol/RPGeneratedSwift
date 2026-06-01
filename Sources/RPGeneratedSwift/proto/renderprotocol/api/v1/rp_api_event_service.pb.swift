@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPEventType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPEventType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case viewAppeared // = 1
@@ -70,7 +70,7 @@ public enum RPEventType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPSubmitEventRequest: Sendable {
+public nonisolated struct RPSubmitEventRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -109,7 +109,7 @@ public struct RPSubmitEventRequest: Sendable {
   fileprivate var _payload: RPEventPayload? = nil
 }
 
-public struct RPSubmitEventResponse: Sendable {
+public nonisolated struct RPSubmitEventResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -130,7 +130,7 @@ public struct RPSubmitEventResponse: Sendable {
   fileprivate var _status: RPStatus? = nil
 }
 
-public struct RPSubmitBatchEventsRequest: Sendable {
+public nonisolated struct RPSubmitBatchEventsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -153,7 +153,7 @@ public struct RPSubmitBatchEventsRequest: Sendable {
   fileprivate var _context: RPSessionContext? = nil
 }
 
-public struct RPSubmitBatchEventsResponse: Sendable {
+public nonisolated struct RPSubmitBatchEventsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -178,7 +178,7 @@ public struct RPSubmitBatchEventsResponse: Sendable {
   fileprivate var _status: RPStatus? = nil
 }
 
-public struct RPEventPayload: Sendable {
+public nonisolated struct RPEventPayload: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -219,7 +219,7 @@ public struct RPEventPayload: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Payload: Equatable, Sendable {
+  public nonisolated enum OneOf_Payload: Equatable, Sendable {
     case viewLifecycle(RPViewLifecyclePayload)
     case widgetState(RPWidgetStatePayload)
     case formSubmit(RPFormSubmitPayload)
@@ -230,7 +230,7 @@ public struct RPEventPayload: Sendable {
   public init() {}
 }
 
-public struct RPViewLifecyclePayload: Sendable {
+public nonisolated struct RPViewLifecyclePayload: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -253,7 +253,7 @@ public struct RPViewLifecyclePayload: Sendable {
   fileprivate var _durationMs: Int64? = nil
 }
 
-public struct RPWidgetStatePayload: Sendable {
+public nonisolated struct RPWidgetStatePayload: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -269,7 +269,7 @@ public struct RPWidgetStatePayload: Sendable {
   public init() {}
 }
 
-public struct RPFormSubmitPayload: Sendable {
+public nonisolated struct RPFormSubmitPayload: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -283,7 +283,7 @@ public struct RPFormSubmitPayload: Sendable {
   public init() {}
 }
 
-public struct RPCustomEventPayload: Sendable {
+public nonisolated struct RPCustomEventPayload: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -299,13 +299,13 @@ public struct RPCustomEventPayload: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.api.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.api.v1"
 
-extension RPEventType: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPEventType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_EVENT_TYPE_UNSPECIFIED\0\u{1}RP_EVENT_TYPE_VIEW_APPEARED\0\u{1}RP_EVENT_TYPE_VIEW_DISAPPEARED\0\u{1}RP_EVENT_TYPE_WIDGET_STATE\0\u{1}RP_EVENT_TYPE_FORM_SUBMIT\0\u{1}RP_EVENT_TYPE_CUSTOM\0")
 }
 
-extension RPSubmitEventRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSubmitEventRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSubmitEventRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}context\0\u{3}view_id\0\u{3}event_id\0\u{3}event_type\0\u{1}payload\0\u{3}timestamp_unix\0")
 
@@ -364,7 +364,7 @@ extension RPSubmitEventRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension RPSubmitEventResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSubmitEventResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSubmitEventResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0")
 
@@ -398,7 +398,7 @@ extension RPSubmitEventResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension RPSubmitBatchEventsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSubmitBatchEventsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSubmitBatchEventsRequest"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}context\0\u{1}events\0")
 
@@ -437,7 +437,7 @@ extension RPSubmitBatchEventsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
-extension RPSubmitBatchEventsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSubmitBatchEventsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSubmitBatchEventsResponse"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}status\0\u{3}accepted_count\0\u{3}rejected_count\0")
 
@@ -481,7 +481,7 @@ extension RPSubmitBatchEventsResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension RPEventPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPEventPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPEventPayload"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}view_lifecycle\0\u{3}widget_state\0\u{3}form_submit\0\u{1}custom\0")
 
@@ -582,7 +582,7 @@ extension RPEventPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   }
 }
 
-extension RPViewLifecyclePayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPViewLifecyclePayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPViewLifecyclePayload"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}view_id\0\u{3}duration_ms\0")
 
@@ -621,7 +621,7 @@ extension RPViewLifecyclePayload: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension RPWidgetStatePayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPWidgetStatePayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPWidgetStatePayload"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}widget_id\0\u{3}field_id\0\u{1}value\0")
 
@@ -661,7 +661,7 @@ extension RPWidgetStatePayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension RPFormSubmitPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFormSubmitPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPFormSubmitPayload"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}form_id\0\u{1}fields\0")
 
@@ -696,7 +696,7 @@ extension RPFormSubmitPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension RPCustomEventPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPCustomEventPayload: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPCustomEventPayload"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}event_name\0\u{1}properties\0")
 

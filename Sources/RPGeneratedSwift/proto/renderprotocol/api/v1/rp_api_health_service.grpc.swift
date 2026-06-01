@@ -29,7 +29,8 @@ public enum RPHealthService: Sendable {
             /// Descriptor for "RPHealthCheck".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPHealthService"),
-                method: "RPHealthCheck"
+                method: "RPHealthCheck",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "proto.renderprotocol.api.v1.RPHealthService" service.

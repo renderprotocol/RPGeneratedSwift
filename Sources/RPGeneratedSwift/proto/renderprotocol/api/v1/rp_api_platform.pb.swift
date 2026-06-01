@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPPlatform: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPPlatform: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case apple // = 1
@@ -68,6 +68,6 @@ public enum RPPlatform: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension RPPlatform: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPPlatform: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_PLATFORM_UNSPECIFIED\0\u{1}RP_PLATFORM_APPLE\0\u{1}RP_PLATFORM_ANDROID\0\u{1}RP_PLATFORM_FLUTTER\0\u{1}RP_PLATFORM_EMBEDDED\0")
 }

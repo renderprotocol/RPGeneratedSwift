@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct RPAction: Sendable {
+public nonisolated struct RPAction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -69,7 +69,7 @@ public struct RPAction: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Action: Equatable, Sendable {
+  public nonisolated enum OneOf_Action: Equatable, Sendable {
     case navigation(RPNavigationAction)
     case apiCall(RPApiCallAction)
     case openURL(RPOpenUrlAction)
@@ -81,7 +81,7 @@ public struct RPAction: Sendable {
   public init() {}
 }
 
-public struct RPNavigationAction: Sendable {
+public nonisolated struct RPNavigationAction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -95,7 +95,7 @@ public struct RPNavigationAction: Sendable {
   public init() {}
 }
 
-public struct RPApiCallAction: Sendable {
+public nonisolated struct RPApiCallAction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -122,7 +122,7 @@ public struct RPApiCallAction: Sendable {
   fileprivate var _body: String? = nil
 }
 
-public struct RPOpenUrlAction: Sendable {
+public nonisolated struct RPOpenUrlAction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -136,7 +136,7 @@ public struct RPOpenUrlAction: Sendable {
   public init() {}
 }
 
-public struct RPDismissAction: Sendable {
+public nonisolated struct RPDismissAction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -146,7 +146,7 @@ public struct RPDismissAction: Sendable {
   public init() {}
 }
 
-public struct RPCustomAction: Sendable {
+public nonisolated struct RPCustomAction: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -162,9 +162,9 @@ public struct RPCustomAction: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPAction"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}navigation\0\u{3}api_call\0\u{3}open_url\0\u{1}dismiss\0\u{1}custom\0")
 
@@ -282,7 +282,7 @@ extension RPAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPNavigationAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPNavigationAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPNavigationAction"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}destination_view_id\0\u{1}parameters\0")
 
@@ -317,7 +317,7 @@ extension RPNavigationAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension RPApiCallAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPApiCallAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPApiCallAction"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}endpoint\0\u{1}method\0\u{1}headers\0\u{1}body\0")
 
@@ -366,7 +366,7 @@ extension RPApiCallAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension RPOpenUrlAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPOpenUrlAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPOpenUrlAction"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}url\0\u{1}external\0")
 
@@ -401,7 +401,7 @@ extension RPOpenUrlAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension RPDismissAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPDismissAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPDismissAction"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -420,7 +420,7 @@ extension RPDismissAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension RPCustomAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPCustomAction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPCustomAction"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}action_type\0\u{1}payload\0")
 

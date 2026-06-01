@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct RPWidget: @unchecked Sendable {
+public nonisolated struct RPWidget: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -339,7 +339,7 @@ public struct RPWidget: @unchecked Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Content: Equatable, Sendable {
+  public nonisolated enum OneOf_Content: Equatable, Sendable {
     /// Layout (51–69)
     case row(RPRow)
     case column(RPColumn)
@@ -391,7 +391,7 @@ public struct RPWidget: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPRow: Sendable {
+public nonisolated struct RPRow: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -407,7 +407,7 @@ public struct RPRow: Sendable {
   public init() {}
 }
 
-public struct RPColumn: Sendable {
+public nonisolated struct RPColumn: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -423,7 +423,7 @@ public struct RPColumn: Sendable {
   public init() {}
 }
 
-public struct RPStack: Sendable {
+public nonisolated struct RPStack: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -437,7 +437,7 @@ public struct RPStack: Sendable {
   public init() {}
 }
 
-public struct RPScrollable: @unchecked Sendable {
+public nonisolated struct RPScrollable: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -468,7 +468,7 @@ public struct RPScrollable: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPLazyList: @unchecked Sendable {
+public nonisolated struct RPLazyList: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -509,7 +509,7 @@ public struct RPLazyList: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPLazyGrid: Sendable {
+public nonisolated struct RPLazyGrid: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -536,7 +536,7 @@ public struct RPLazyGrid: Sendable {
   fileprivate var _layout: RPGridLayout? = nil
 }
 
-public struct RPWrap: Sendable {
+public nonisolated struct RPWrap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -554,7 +554,7 @@ public struct RPWrap: Sendable {
   public init() {}
 }
 
-public struct RPCenter: @unchecked Sendable {
+public nonisolated struct RPCenter: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -575,7 +575,7 @@ public struct RPCenter: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPExpanded: @unchecked Sendable {
+public nonisolated struct RPExpanded: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -601,7 +601,7 @@ public struct RPExpanded: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPPadding: @unchecked Sendable {
+public nonisolated struct RPPadding: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -646,7 +646,7 @@ public struct RPPadding: @unchecked Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Value: Equatable, Sendable {
+  public nonisolated enum OneOf_Value: Equatable, Sendable {
     case all(Float)
     case symmetric(RPSymmetricPadding)
     case explicit(RPExplicitPadding)
@@ -658,7 +658,7 @@ public struct RPPadding: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPBackground: @unchecked Sendable {
+public nonisolated struct RPBackground: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -688,7 +688,7 @@ public struct RPBackground: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPBorder: @unchecked Sendable {
+public nonisolated struct RPBorder: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -732,7 +732,7 @@ public struct RPBorder: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPClip: @unchecked Sendable {
+public nonisolated struct RPClip: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -767,7 +767,7 @@ public struct RPClip: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPOpacity: @unchecked Sendable {
+public nonisolated struct RPOpacity: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -793,7 +793,7 @@ public struct RPOpacity: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPVisibility: @unchecked Sendable {
+public nonisolated struct RPVisibility: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -819,7 +819,7 @@ public struct RPVisibility: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPShadow: @unchecked Sendable {
+public nonisolated struct RPShadow: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -864,7 +864,7 @@ public struct RPShadow: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPSizeBox: @unchecked Sendable {
+public nonisolated struct RPSizeBox: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -939,7 +939,7 @@ public struct RPSizeBox: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPSafeArea: @unchecked Sendable {
+public nonisolated struct RPSafeArea: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -980,7 +980,7 @@ public struct RPSafeArea: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPAspectRatio: @unchecked Sendable {
+public nonisolated struct RPAspectRatio: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1011,7 +1011,7 @@ public struct RPAspectRatio: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPPositioned: @unchecked Sendable {
+public nonisolated struct RPPositioned: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1068,7 +1068,7 @@ public struct RPPositioned: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPButton: @unchecked Sendable {
+public nonisolated struct RPButton: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1108,7 +1108,7 @@ public struct RPButton: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPToggle: @unchecked Sendable {
+public nonisolated struct RPToggle: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1162,7 +1162,7 @@ public struct RPToggle: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPCard: @unchecked Sendable {
+public nonisolated struct RPCard: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1219,7 +1219,7 @@ public struct RPCard: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPListTile: @unchecked Sendable {
+public nonisolated struct RPListTile: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1276,7 +1276,7 @@ public struct RPListTile: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPAppBar: @unchecked Sendable {
+public nonisolated struct RPAppBar: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1320,7 +1320,7 @@ public struct RPAppBar: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPBadge: @unchecked Sendable {
+public nonisolated struct RPBadge: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1359,7 +1359,7 @@ public struct RPBadge: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPScaffold: @unchecked Sendable {
+public nonisolated struct RPScaffold: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1407,7 +1407,7 @@ public struct RPScaffold: @unchecked Sendable {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct RPGestureDetector: @unchecked Sendable {
+public nonisolated struct RPGestureDetector: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1457,9 +1457,9 @@ public struct RPGestureDetector: @unchecked Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPWidget"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}id\0\u{2}2row\0\u{1}column\0\u{1}stack\0\u{2}\u{5}scrollable\0\u{3}lazy_list\0\u{3}lazy_grid\0\u{1}wrap\0\u{1}center\0\u{1}expanded\0\u{2}\u{7}padding\0\u{1}background\0\u{1}border\0\u{1}clip\0\u{1}opacity\0\u{1}visibility\0\u{1}shadow\0\u{3}size_box\0\u{3}safe_area\0\u{3}aspect_ratio\0\u{1}positioned\0\u{2}\u{15}text\0\u{1}image\0\u{1}icon\0\u{1}spacer\0\u{1}divider\0\u{3}progress_indicator\0\u{1}button\0\u{4}+text_field\0\u{1}toggle\0\u{1}slider\0\u{2}\u{1c}card\0\u{3}list_tile\0\u{3}app_bar\0\u{3}bottom_nav_bar\0\u{1}badge\0\u{1}scaffold\0\u{4}\u{f}gesture_detector\0")
 
@@ -2164,7 +2164,7 @@ extension RPWidget: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPRow"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}spacing\0\u{1}alignment\0")
 
@@ -2204,7 +2204,7 @@ extension RPRow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
   }
 }
 
-extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPColumn"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}spacing\0\u{1}alignment\0")
 
@@ -2244,7 +2244,7 @@ extension RPColumn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPStack"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}alignment\0")
 
@@ -2279,7 +2279,7 @@ extension RPStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension RPScrollable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPScrollable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPScrollable"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}axis\0\u{3}shows_indicators\0")
 
@@ -2363,7 +2363,7 @@ extension RPScrollable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-extension RPLazyList: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPLazyList: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPLazyList"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}axis\0\u{1}spacing\0\u{3}shows_indicators\0\u{1}separator\0")
 
@@ -2461,7 +2461,7 @@ extension RPLazyList: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension RPLazyGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPLazyGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPLazyGrid"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}layout\0\u{1}spacing\0\u{3}run_spacing\0")
 
@@ -2510,7 +2510,7 @@ extension RPLazyGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension RPWrap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPWrap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPWrap"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}children\0\u{1}spacing\0\u{3}run_spacing\0\u{1}alignment\0")
 
@@ -2555,7 +2555,7 @@ extension RPWrap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
   }
 }
 
-extension RPCenter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPCenter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPCenter"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0")
 
@@ -2625,7 +2625,7 @@ extension RPCenter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPExpanded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPExpanded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPExpanded"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}flex\0")
 
@@ -2702,7 +2702,7 @@ extension RPExpanded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPPadding"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{2}\u{a}all\0\u{1}symmetric\0\u{1}explicit\0")
 
@@ -2824,7 +2824,7 @@ extension RPPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   }
 }
 
-extension RPBackground: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPBackground: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPBackground"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}color\0")
 
@@ -2901,7 +2901,7 @@ extension RPBackground: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-extension RPBorder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPBorder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPBorder"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}width\0\u{1}color\0\u{1}radius\0")
 
@@ -2992,7 +2992,7 @@ extension RPBorder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPClip: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPClip: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPClip"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}shape\0\u{1}type\0")
 
@@ -3076,7 +3076,7 @@ extension RPClip: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
   }
 }
 
-extension RPOpacity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPOpacity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPOpacity"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}value\0")
 
@@ -3153,7 +3153,7 @@ extension RPOpacity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   }
 }
 
-extension RPVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPVisibility"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}visible\0")
 
@@ -3230,7 +3230,7 @@ extension RPVisibility: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-extension RPShadow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPShadow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPShadow"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}color\0\u{1}radius\0\u{3}offset_x\0\u{3}offset_y\0")
 
@@ -3328,7 +3328,7 @@ extension RPShadow: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPSizeBox: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSizeBox: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSizeBox"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}width\0\u{1}height\0\u{3}min_width\0\u{3}min_height\0\u{3}max_width\0\u{3}max_height\0")
 
@@ -3440,7 +3440,7 @@ extension RPSizeBox: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   }
 }
 
-extension RPSafeArea: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSafeArea: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSafeArea"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}top\0\u{1}bottom\0\u{1}leading\0\u{1}trailing\0")
 
@@ -3538,7 +3538,7 @@ extension RPSafeArea: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension RPAspectRatio: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAspectRatio: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPAspectRatio"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}ratio\0\u{3}content_mode\0")
 
@@ -3622,7 +3622,7 @@ extension RPAspectRatio: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension RPPositioned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPPositioned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPPositioned"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}top\0\u{1}bottom\0\u{1}leading\0\u{1}trailing\0")
 
@@ -3720,7 +3720,7 @@ extension RPPositioned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-extension RPButton: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPButton: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPButton"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}label\0\u{1}action\0\u{1}style\0\u{1}disabled\0")
 
@@ -3811,7 +3811,7 @@ extension RPButton: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPToggle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPToggle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPToggle"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}field_id\0\u{3}initial_value\0\u{1}label\0\u{3}on_color\0\u{1}enabled\0\u{3}on_change\0")
 
@@ -3916,7 +3916,7 @@ extension RPToggle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPCard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPCard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPCard"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}elevation\0\u{3}corner_radius\0\u{3}background_color\0\u{1}padding\0")
 
@@ -4014,7 +4014,7 @@ extension RPCard: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
   }
 }
 
-extension RPListTile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPListTile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPListTile"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}leading\0\u{1}title\0\u{1}subtitle\0\u{1}trailing\0\u{3}on_tap\0")
 
@@ -4112,7 +4112,7 @@ extension RPListTile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension RPAppBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAppBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPAppBar"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}title\0\u{1}leading\0\u{1}actions\0\u{3}background_color\0")
 
@@ -4203,7 +4203,7 @@ extension RPAppBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationB
   }
 }
 
-extension RPBadge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPBadge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPBadge"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{1}value\0\u{1}color\0")
 
@@ -4287,7 +4287,7 @@ extension RPBadge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension RPScaffold: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPScaffold: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPScaffold"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}app_bar\0\u{1}body\0\u{3}bottom_nav_bar\0\u{3}background_color\0")
 
@@ -4378,7 +4378,7 @@ extension RPScaffold: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension RPGestureDetector: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPGestureDetector: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPGestureDetector"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}child\0\u{3}on_tap\0\u{3}on_long_press\0\u{3}on_double_tap\0")
 

@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public struct RPAppMetadata: Sendable {
+public nonisolated struct RPAppMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -40,7 +40,7 @@ public struct RPAppMetadata: Sendable {
   public init() {}
 }
 
-public struct RPDeviceMetadata: Sendable {
+public nonisolated struct RPDeviceMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -87,7 +87,7 @@ public struct RPDeviceMetadata: Sendable {
   fileprivate var _screenDensity: Float? = nil
 }
 
-public struct RPApiMetadata: Sendable {
+public nonisolated struct RPApiMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -118,7 +118,7 @@ public struct RPApiMetadata: Sendable {
   fileprivate var _deviceMetadata: RPDeviceMetadata? = nil
 }
 
-public struct RPSessionContext: Sendable {
+public nonisolated struct RPSessionContext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -153,9 +153,9 @@ public struct RPSessionContext: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.api.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.api.v1"
 
-extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPAppMetadata"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}bundle_id\0\u{3}app_version\0\u{1}platform\0\u{1}locale\0\u{3}sdk_version\0")
 
@@ -205,7 +205,7 @@ extension RPAppMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPDeviceMetadata"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}device_model\0\u{3}os_version\0\u{1}platform\0\u{3}screen_width\0\u{3}screen_height\0\u{3}screen_density\0")
 
@@ -264,7 +264,7 @@ extension RPDeviceMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   }
 }
 
-extension RPApiMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPApiMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPApiMetadata"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}app_metadata\0\u{3}device_metadata\0")
 
@@ -303,7 +303,7 @@ extension RPApiMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension RPSessionContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSessionContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSessionContext"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}session_token\0\u{3}trace_id\0\u{3}locale_override\0")
 

@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case center // = 1
@@ -86,7 +86,7 @@ public enum RPAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPAxisAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPAxisAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case center // = 1
@@ -136,7 +136,7 @@ public enum RPAxisAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPClipType: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPClipType: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case hardEdge // = 1
@@ -178,7 +178,7 @@ public enum RPClipType: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPAxis: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPAxis: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case horizontal // = 1
@@ -216,7 +216,7 @@ public enum RPAxis: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPCrossAxisAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPCrossAxisAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case start // = 1
@@ -262,7 +262,7 @@ public enum RPCrossAxisAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPMainAxisSize: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPMainAxisSize: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case min // = 1
@@ -300,7 +300,7 @@ public enum RPMainAxisSize: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPButtonStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPButtonStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case primary // = 1
@@ -350,7 +350,7 @@ public enum RPButtonStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPSymmetricPadding: Sendable {
+public nonisolated struct RPSymmetricPadding: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -364,7 +364,7 @@ public struct RPSymmetricPadding: Sendable {
   public init() {}
 }
 
-public struct RPExplicitPadding: Sendable {
+public nonisolated struct RPExplicitPadding: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -382,7 +382,7 @@ public struct RPExplicitPadding: Sendable {
   public init() {}
 }
 
-public struct RPClipShape: Sendable {
+public nonisolated struct RPClipShape: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -431,7 +431,7 @@ public struct RPClipShape: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Value: Equatable, Sendable {
+  public nonisolated enum OneOf_Value: Equatable, Sendable {
     case rectangle(RPShapeRectangle)
     case circle(RPShapeCircle)
     case ellipse(RPShapeEllipse)
@@ -443,7 +443,7 @@ public struct RPClipShape: Sendable {
   public init() {}
 }
 
-public struct RPSize: Sendable {
+public nonisolated struct RPSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -457,7 +457,7 @@ public struct RPSize: Sendable {
   public init() {}
 }
 
-public struct RPEdgeInsets: Sendable {
+public nonisolated struct RPEdgeInsets: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -475,7 +475,7 @@ public struct RPEdgeInsets: Sendable {
   public init() {}
 }
 
-public struct RPGridLayout: Sendable {
+public nonisolated struct RPGridLayout: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -500,7 +500,7 @@ public struct RPGridLayout: Sendable {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum OneOf_Value: Equatable, Sendable {
+  public nonisolated enum OneOf_Value: Equatable, Sendable {
     case fixed(RPFixedGrid)
     case adaptive(RPAdaptiveGrid)
 
@@ -509,7 +509,7 @@ public struct RPGridLayout: Sendable {
   public init() {}
 }
 
-public struct RPFixedGrid: Sendable {
+public nonisolated struct RPFixedGrid: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -521,7 +521,7 @@ public struct RPFixedGrid: Sendable {
   public init() {}
 }
 
-public struct RPAdaptiveGrid: Sendable {
+public nonisolated struct RPAdaptiveGrid: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -535,37 +535,37 @@ public struct RPAdaptiveGrid: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPAlignment: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAlignment: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_ALIGNMENT_UNSPECIFIED\0\u{1}RP_ALIGNMENT_CENTER\0\u{1}RP_ALIGNMENT_TOP\0\u{1}RP_ALIGNMENT_BOTTOM\0\u{1}RP_ALIGNMENT_LEADING\0\u{1}RP_ALIGNMENT_TRAILING\0\u{1}RP_ALIGNMENT_TOP_LEADING\0\u{1}RP_ALIGNMENT_TOP_TRAILING\0\u{1}RP_ALIGNMENT_BOTTOM_LEADING\0\u{1}RP_ALIGNMENT_BOTTOM_TRAILING\0")
 }
 
-extension RPAxisAlignment: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAxisAlignment: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_AXIS_ALIGNMENT_UNSPECIFIED\0\u{1}RP_AXIS_ALIGNMENT_CENTER\0\u{1}RP_AXIS_ALIGNMENT_LEADING\0\u{1}RP_AXIS_ALIGNMENT_TRAILING\0\u{1}RP_AXIS_ALIGNMENT_SPACE_BETWEEN\0\u{1}RP_AXIS_ALIGNMENT_SPACE_EVENLY\0")
 }
 
-extension RPClipType: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPClipType: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_CLIP_TYPE_UNSPECIFIED\0\u{1}RP_CLIP_TYPE_HARD_EDGE\0\u{1}RP_CLIP_TYPE_ANTI_ALIAS\0\u{1}RP_CLIP_TYPE_ANTI_ALIAS_WITH_SAVE_LAYER\0")
 }
 
-extension RPAxis: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAxis: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_AXIS_UNSPECIFIED\0\u{1}RP_AXIS_HORIZONTAL\0\u{1}RP_AXIS_VERTICAL\0")
 }
 
-extension RPCrossAxisAlignment: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPCrossAxisAlignment: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_CROSS_AXIS_ALIGNMENT_UNSPECIFIED\0\u{1}RP_CROSS_AXIS_ALIGNMENT_START\0\u{1}RP_CROSS_AXIS_ALIGNMENT_CENTER\0\u{1}RP_CROSS_AXIS_ALIGNMENT_END\0\u{1}RP_CROSS_AXIS_ALIGNMENT_STRETCH\0")
 }
 
-extension RPMainAxisSize: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPMainAxisSize: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_MAIN_AXIS_SIZE_UNSPECIFIED\0\u{1}RP_MAIN_AXIS_SIZE_MIN\0\u{1}RP_MAIN_AXIS_SIZE_MAX\0")
 }
 
-extension RPButtonStyle: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPButtonStyle: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_BUTTON_STYLE_UNSPECIFIED\0\u{1}RP_BUTTON_STYLE_PRIMARY\0\u{1}RP_BUTTON_STYLE_SECONDARY\0\u{1}RP_BUTTON_STYLE_TEXT\0\u{1}RP_BUTTON_STYLE_OUTLINED\0\u{1}RP_BUTTON_STYLE_DESTRUCTIVE\0")
 }
 
-extension RPSymmetricPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSymmetricPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSymmetricPadding"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}vertical\0\u{1}horizontal\0")
 
@@ -600,7 +600,7 @@ extension RPSymmetricPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension RPExplicitPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPExplicitPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPExplicitPadding"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}top\0\u{1}bottom\0\u{1}left\0\u{1}right\0")
 
@@ -645,7 +645,7 @@ extension RPExplicitPadding: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
   }
 }
 
-extension RPClipShape: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPClipShape: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPClipShape"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}rectangle\0\u{1}circle\0\u{1}ellipse\0\u{1}capsule\0\u{3}rounded_rectangle\0")
 
@@ -763,7 +763,7 @@ extension RPClipShape: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
   }
 }
 
-extension RPSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPSize"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}width\0\u{1}height\0")
 
@@ -798,7 +798,7 @@ extension RPSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
   }
 }
 
-extension RPEdgeInsets: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPEdgeInsets: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPEdgeInsets"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}top\0\u{1}bottom\0\u{1}leading\0\u{1}trailing\0")
 
@@ -843,7 +843,7 @@ extension RPEdgeInsets: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-extension RPGridLayout: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPGridLayout: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPGridLayout"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fixed\0\u{1}adaptive\0")
 
@@ -910,7 +910,7 @@ extension RPGridLayout: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-extension RPFixedGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFixedGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPFixedGrid"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}count\0")
 
@@ -940,7 +940,7 @@ extension RPFixedGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
   }
 }
 
-extension RPAdaptiveGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPAdaptiveGrid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPAdaptiveGrid"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}min_item_width\0")
 

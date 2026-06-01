@@ -15,12 +15,12 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+fileprivate nonisolated struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
 
-public enum RPFontWeight: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPFontWeight: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case thin // = 1
@@ -86,7 +86,7 @@ public enum RPFontWeight: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPFontStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPFontStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case normal // = 1
@@ -124,7 +124,7 @@ public enum RPFontStyle: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPTextDecoration: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPTextDecoration: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case none // = 1
@@ -170,7 +170,7 @@ public enum RPTextDecoration: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPTextOverflow: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPTextOverflow: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case clip // = 1
@@ -212,7 +212,7 @@ public enum RPTextOverflow: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public enum RPTextAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
+public nonisolated enum RPTextAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
   public typealias RawValue = Int
   case unspecified // = 0
   case left // = 1
@@ -258,7 +258,7 @@ public enum RPTextAlignment: SwiftProtobuf.Enum, Swift.CaseIterable {
 
 }
 
-public struct RPText: Sendable {
+public nonisolated struct RPText: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -295,7 +295,7 @@ public struct RPText: Sendable {
   fileprivate var _maxLines: Int32? = nil
 }
 
-public struct RPTextStyle: Sendable {
+public nonisolated struct RPTextStyle: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -364,29 +364,29 @@ public struct RPTextStyle: Sendable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto.renderprotocol.ui.v1"
+fileprivate nonisolated let _protobuf_package = "proto.renderprotocol.ui.v1"
 
-extension RPFontWeight: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFontWeight: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_FONT_WEIGHT_UNSPECIFIED\0\u{1}RP_FONT_WEIGHT_THIN\0\u{1}RP_FONT_WEIGHT_EXTRA_LIGHT\0\u{1}RP_FONT_WEIGHT_LIGHT\0\u{1}RP_FONT_WEIGHT_REGULAR\0\u{1}RP_FONT_WEIGHT_MEDIUM\0\u{1}RP_FONT_WEIGHT_SEMI_BOLD\0\u{1}RP_FONT_WEIGHT_BOLD\0\u{1}RP_FONT_WEIGHT_EXTRA_BOLD\0\u{1}RP_FONT_WEIGHT_BLACK\0")
 }
 
-extension RPFontStyle: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPFontStyle: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_FONT_STYLE_UNSPECIFIED\0\u{1}RP_FONT_STYLE_NORMAL\0\u{1}RP_FONT_STYLE_ITALIC\0")
 }
 
-extension RPTextDecoration: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPTextDecoration: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_TEXT_DECORATION_UNSPECIFIED\0\u{1}RP_TEXT_DECORATION_NONE\0\u{1}RP_TEXT_DECORATION_UNDERLINE\0\u{1}RP_TEXT_DECORATION_LINE_THROUGH\0\u{1}RP_TEXT_DECORATION_OVERLINE\0")
 }
 
-extension RPTextOverflow: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPTextOverflow: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_TEXT_OVERFLOW_UNSPECIFIED\0\u{1}RP_TEXT_OVERFLOW_CLIP\0\u{1}RP_TEXT_OVERFLOW_ELLIPSIS\0\u{1}RP_TEXT_OVERFLOW_FADE\0")
 }
 
-extension RPTextAlignment: SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPTextAlignment: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0RP_TEXT_ALIGNMENT_UNSPECIFIED\0\u{1}RP_TEXT_ALIGNMENT_LEFT\0\u{1}RP_TEXT_ALIGNMENT_CENTER\0\u{1}RP_TEXT_ALIGNMENT_RIGHT\0\u{1}RP_TEXT_ALIGNMENT_JUSTIFY\0")
 }
 
-extension RPText: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPText: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPText"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}value\0\u{1}style\0\u{3}max_lines\0\u{1}overflow\0\u{3}text_alignment\0")
 
@@ -440,7 +440,7 @@ extension RPText: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBas
   }
 }
 
-extension RPTextStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+nonisolated extension RPTextStyle: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".RPTextStyle"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{3}font_size\0\u{3}font_weight\0\u{1}color\0\u{3}line_height\0\u{3}letter_spacing\0\u{1}decoration\0\u{3}font_family\0\u{3}font_style\0")
 

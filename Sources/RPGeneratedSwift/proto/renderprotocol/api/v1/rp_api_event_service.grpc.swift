@@ -29,7 +29,8 @@ public enum RPEventService: Sendable {
             /// Descriptor for "RPSubmitEvent".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPEventService"),
-                method: "RPSubmitEvent"
+                method: "RPSubmitEvent",
+                type: .unary
             )
         }
         /// Namespace for "RPSubmitBatchEvents" metadata.
@@ -41,7 +42,8 @@ public enum RPEventService: Sendable {
             /// Descriptor for "RPSubmitBatchEvents".
             public static let descriptor = GRPCCore.MethodDescriptor(
                 service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "proto.renderprotocol.api.v1.RPEventService"),
-                method: "RPSubmitBatchEvents"
+                method: "RPSubmitBatchEvents",
+                type: .unary
             )
         }
         /// Descriptors for all methods in the "proto.renderprotocol.api.v1.RPEventService" service.
